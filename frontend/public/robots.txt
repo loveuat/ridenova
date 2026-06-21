@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://atulyaitsolutions.com/
+
+# Sitemaps
+Sitemap: https://atulyaitsolutions.com/sitemap.xml

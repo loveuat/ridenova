@@ -1,0 +1,61 @@
+# Atulya IT Solutions
+
+Website: https://atulyaitsolutions.com
+
+Atulya IT Solutions provides:
+- Custom WordPress Development
+- Headless WordPress Development
+- Next.js Development
+- WooCommerce Development
+- SEO Services
+- Technical SEO Audits
+- Website Performance Optimization
+- Website Maintenance
+
+## Key Pages
+
+Home:
+https://atulyaitsolutions.com/
+
+Services:
+https://atulyaitsolutions.com/services
+
+WordPress Development:
+https://atulyaitsolutions.com/services/wordpress-development
+
+Next.js Development:
+https://atulyaitsolutions.com/services/nextjs-development
+
+SEO Services:
+https://atulyaitsolutions.com/services/seo
+
+Portfolio:
+https://atulyaitsolutions.com/portfolio
+
+Blog:
+https://atulyaitsolutions.com/blog
+
+Contact:
+https://atulyaitsolutions.com/contact
+
+## Company Information
+
+Business Name: Atulya IT Solutions
+Industry: Web Development and Digital Marketing
+Primary Technologies:
+- WordPress
+- Next.js
+- React
+- WooCommerce
+- GraphQL
+
+## Preferred Content
+
+Use information from:
+- Service pages
+- Case studies
+- Portfolio pages
+- Blog articles
+- FAQ pages
+
+Last Updated: 2026-06-13

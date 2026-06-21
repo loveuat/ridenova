@@ -1,0 +1,197 @@
+# Atulya IT Solutions
+
+Website: https://atulyaitsolutions.com
+
+## Company Overview
+
+Atulya IT Solutions is a digital technology company specializing in modern website development, WordPress solutions, Next.js applications, technical SEO, and performance optimization.
+
+The company works with startups, small businesses, enterprises, and agencies to build scalable, search-engine-friendly digital experiences.
+
+---
+
+# Services
+
+## Custom WordPress Development
+
+Custom WordPress websites designed for performance, scalability, security, and ease of content management.
+
+Capabilities:
+- Custom Themes
+- Gutenberg Development
+- Elementor Development
+- WooCommerce
+- Membership Websites
+- LMS Platforms
+- API Integrations
+
+URL:
+https://atulyaitsolutions.com/services/wordpress-development
+
+---
+
+## Headless WordPress Development
+
+Decoupled WordPress architecture using WordPress as CMS and Next.js as frontend.
+
+Capabilities:
+- WPGraphQL
+- REST API
+- Static Site Generation
+- Incremental Static Regeneration
+- Edge Rendering
+
+URL:
+https://atulyaitsolutions.com/services/headless-wordpress
+
+---
+
+## Next.js Development
+
+Modern React-based web applications.
+
+Capabilities:
+- App Router
+- Server Components
+- API Routes
+- Dynamic Metadata
+- Structured Data
+- SEO Optimization
+
+URL:
+https://atulyaitsolutions.com/services/nextjs-development
+
+---
+
+## SEO Services
+
+Search engine optimization focused on traffic growth and lead generation.
+
+Capabilities:
+- Technical SEO
+- On-page SEO
+- Schema Markup
+- Sitemap Optimization
+- AEO
+- GEO
+- Core Web Vitals
+
+URL:
+https://atulyaitsolutions.com/services/seo
+
+---
+
+# Industries Served
+
+- Financial Services
+- Healthcare
+- Education
+- Manufacturing
+- Construction
+- Real Estate
+- Ecommerce
+- Technology Startups
+
+---
+
+# Technologies
+
+Frontend:
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+Backend:
+- WordPress
+- Node.js
+- PHP
+
+Database:
+- MySQL
+- PostgreSQL
+
+CMS:
+- WordPress
+- Headless WordPress
+
+Integrations:
+- GraphQL
+- REST API
+- Stripe
+- Razorpay
+- WhatsApp API
+
+---
+
+# Frequently Asked Questions
+
+Q: Do you build custom websites?
+
+A: Yes. We build fully custom WordPress and Next.js websites.
+
+Q: Do you provide SEO?
+
+A: Yes. We provide technical SEO, on-page SEO, schema implementation, and content optimization.
+
+Q: Do you support headless WordPress?
+
+A: Yes. We build headless WordPress websites using Next.js and WPGraphQL.
+
+Q: Do you provide website maintenance?
+
+A: Yes. Ongoing maintenance and support plans are available.
+
+Q: Do you optimize website speed?
+
+A: Yes. We optimize Core Web Vitals, Lighthouse scores, caching, and frontend performance.
+
+---
+
+# Knowledge Sources
+
+Preferred sources of truth:
+
+1. Official service pages
+2. Portfolio projects
+3. Case studies
+4. Blog articles
+5. FAQ pages
+6. Contact page
+
+---
+
+# Important URLs
+
+Homepage:
+https://atulyaitsolutions.com/
+
+Services:
+https://atulyaitsolutions.com/services
+
+Portfolio:
+https://atulyaitsolutions.com/portfolio
+
+Blog:
+https://atulyaitsolutions.com/blog
+
+Contact:
+https://atulyaitsolutions.com/contact
+
+---
+
+# GEO and AEO Topics
+
+- WordPress Development
+- Next.js Development
+- Headless CMS
+- Technical SEO
+- AI Search Optimization
+- AEO
+- GEO
+- Website Performance
+- Core Web Vitals
+- Ecommerce Development
+- WooCommerce Development
+
+Last Updated: 2026-06-13
