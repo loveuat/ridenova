@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, ArrowRight} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
+  { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "Our Products", href: "/ourproduct" },
-  { name: "Our Services", href: "/services" },
+  { name: "Services", href: "/services" },
+  { name: "Destinations", href: "/destinations" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -58,14 +59,30 @@ export function Navbar() {
             </div>
 
             {/* Desktop Actions */}
+
+            
+              
+
             <div className="hidden md:flex items-center gap-2">
+                 <Link href="/#booking-form">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Sign Up
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+                <Link href="/#booking-form">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Login
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+
               <ThemeToggle />
 
               <Button
-                onClick={() => setShowWhatsapp(true)}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                Let’s Chat
+                Book Now
               </Button>
             </div>
 
@@ -95,6 +112,7 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
+
 
               <Button
                 onClick={() => {

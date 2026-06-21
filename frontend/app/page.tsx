@@ -4,7 +4,7 @@ import Script from "next/script";
 import {
   Navbar,
   Hero,
-  TrustedBy,
+  BookingSection,
   TrustBadges,
   WhatWeOffer,
   HowItWorks,
@@ -51,7 +51,7 @@ export default function Home() {
       <main className="min-h-screen bg-background">
         <Navbar />
         <Hero />
-        <TrustedBy />
+        <BookingSection />
         <TrustBadges />
         <WhatWeOffer />
         <HowItWorks />
