@@ -11,7 +11,7 @@
   --card-foreground: #0a0a0a;
   --popover: #ffffff;
   --popover-foreground: #0a0a0a;
-  --primary: #ff6600;
+  --primary: #fdb813;
   --primary-foreground: #ffffff;
   --secondary: #f5f5f5;
   --secondary-foreground: #0a0a0a;
@@ -23,8 +23,8 @@
   --destructive-foreground: #ffffff;
   --border: #e5e5e5;
   --input: #e5e5e5;
-  --ring: #ff6600;
-  --chart-1: #ff6600;
+  --ring: #fdb813;
+  --chart-1: #fdb813;
   --chart-2: #f97316;
   --chart-3: #eab308;
   --chart-4: #22c55e;
@@ -32,12 +32,12 @@
   --radius: 0.625rem;
   --sidebar: #fafafa;
   --sidebar-foreground: #0a0a0a;
-  --sidebar-primary: #ff6600;
+  --sidebar-primary: #fdb813;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f5f5f5;
   --sidebar-accent-foreground: #0a0a0a;
   --sidebar-border: #e5e5e5;
-  --sidebar-ring: #ff6600;
+  --sidebar-ring: #fdb813;
 }
 
 /* Dark mode - black background */
@@ -48,7 +48,7 @@
   --card-foreground: #ffffff;
   --popover: #0a0a0a;
   --popover-foreground: #ffffff;
-  --primary: #ff6600;
+  --primary: #fdb813;
   --primary-foreground: #ffffff;
   --secondary: #171717;
   --secondary-foreground: #ffffff;
@@ -60,20 +60,20 @@
   --destructive-foreground: #fecaca;
   --border: #262626;
   --input: #262626;
-  --ring: #ff6600;
-  --chart-1: #ff6600;
+  --ring: #fdb813;
+  --chart-1: #fdb813;
   --chart-2: #f97316;
   --chart-3: #eab308;
   --chart-4: #22c55e;
   --chart-5: #06b6d4;
   --sidebar: #0a0a0a;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #ff6600;
+  --sidebar-primary: #fdb813;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #171717;
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #262626;
-  --sidebar-ring: #ff6600;
+  --sidebar-ring: #fdb813;
 }
 
 @theme inline {
@@ -128,14 +128,14 @@
 
 /* Custom gradient text */
 .text-gradient {
-  background: linear-gradient(135deg, #ff6600 0%, #ff8a7a 100%);
+  background: linear-gradient(135deg, #fdb813 0%, #ff8a7a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-orange {
-  background: linear-gradient(135deg, #ff6600 0%, #f97316 100%);
+  background: linear-gradient(135deg, #fdb813 0%, #f97316 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -165,7 +165,7 @@
 
 /* Timeline line gradient */
 .timeline-line {
-  background: linear-gradient(to bottom, #ff6600, transparent);
+  background: linear-gradient(to bottom, #fdb813, transparent);
 }
 
 /* Marquee animations */
