@@ -25,6 +25,8 @@ export { NextGenerationTheme } from "./next-generation-wordpress-theme";
 export { PrivacyPolicyPage } from "./privacy-policy";
 export { TermsOfServicePage } from "./terms-of-service";
 export { TestimonialEmblaSlider } from "./TestimonialSlider";
+export { BookingSection } from "./hero";
+
 
 
 
