@@ -15,6 +15,7 @@ import {
   Footer,
   ValuesSection,
   PortfolioSection,
+  DriveCarSection
 } from "@/components/sections";
 
 export const metadata: Metadata = {
@@ -49,7 +50,8 @@ export default function Home() {
       />
 
       <main className="min-h-screen bg-background">
-        <Navbar />
+        <Navbar/>
+        <DriveCarSection />
         <Hero />
         <BookingSection />
         <TrustBadges />
@@ -61,6 +63,7 @@ export default function Home() {
         <PricingComparison />
         <TestimonialEmblaSlider />
         <CTA />
+         
         <Footer />
       </main>
     </>
