@@ -15,7 +15,8 @@ import {
   Footer,
   ValuesSection,
   PortfolioSection,
-  DriveCarSection
+  DriveCarSection,
+  ServiceCard
 } from "@/components/sections";
 
 export const metadata: Metadata = {
@@ -51,9 +52,9 @@ export default function Home() {
 
       <main className="min-h-screen bg-background">
         <Navbar/>
-        <DriveCarSection />
         <Hero />
         <BookingSection />
+        <ServiceCard/>
         <TrustBadges />
         <WhatWeOffer />
         <HowItWorks />
