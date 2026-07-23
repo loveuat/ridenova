@@ -9,8 +9,8 @@ import { ThemeToggle } from "@/components/theme-toggle";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Destinations", href: "/destinations" },
+  // { name: "Services", href: "/services" },
+  // { name: "Destinations", href: "/destinations" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -26,23 +26,23 @@ export function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center border border-border bg-black dark:bg-white transition-colors">
+              <div className="flex items-center justify-center transition-colors">
                 <img
-                  src="/aislogo.webp"
-                  alt="Atulya IT Solutions Logo"
+                  src="/tripmitra.webp"
+                  alt="Trip Mitra Go"
                   loading="eager"
-                  className="w-10 h-10 object-contain rounded-xl"
+                  className="w-full h-full object-contain"
                 />
               </div>
 
-              <div className="flex flex-col leading-tight">
+              {/*<div className="flex flex-col leading-tight">
                 <span className="font-semibold text-lg text-foreground">
                   Atulya IT Solutions
                 </span>
                 <span className="text-xs text-muted-foreground">
                   Analyze. Architect. Accelerate.
                 </span>
-              </div>
+              </div>*/}
             </Link>
 
             {/* Desktop Navigation */}

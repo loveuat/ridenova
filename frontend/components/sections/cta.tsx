@@ -13,11 +13,11 @@ export function CTA() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 text-balance">
-            Ready to Build Your{" "}
-            <span className="text-gradient-orange">Dream App?</span>
+            Need A {" "} 
+            <span className="text-gradient-orange">Car? </span> Today
           </h2>
           <p className="text-lg text-muted-foreground mb-8 text-pretty">
-            Whether you need a dedicated WordPress developer, a full-stack development, or ongoing website maintenance, we help you find the right talent to bring your ideas to life.
+            Book your ride in under one minute with Elite Cabs. Premium service, competitive rates, and guaranteed safety.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -25,8 +25,8 @@ export function CTA() {
     size="lg"
     className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg group"
   >
-    <Link href="/contact">
-      Contact Us
+    <Link href="/#booking-form">
+      Book Your Car Now
       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
     </Link>
   </Button>
@@ -38,7 +38,7 @@ export function CTA() {
     className="border-border text-foreground hover:bg-secondary px-8 py-6 text-lg"
   >
  <a href="tel:+918770570764">
-  Schedule a Call
+  Call Us Now
 </a>
   </Button>
           </div>

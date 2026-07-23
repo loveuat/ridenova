@@ -13,7 +13,7 @@ interface ServiceCardProps {
 export function ServiceCard({ icon, title, description, features }: ServiceCardProps) {
   return (
     <div className="group h-full bg-card rounded-xl border border-border p-6 hover:border-accent hover:shadow-lg transition-all duration-300">
-      <div className="w-12 h-12 bg-gradient-to-br from-accent to-cta rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
+      <div className="w-12 h-12 bg-primary/10 from-accent to-cta rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
         {icon}
       </div>
       <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
@@ -41,7 +41,7 @@ interface FeatureCardProps {
 export function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
     <div className="text-center">
-      <div className="w-16 h-16 bg-gradient-to-br from-accent/20 to-cta/20 rounded-xl flex items-center justify-center text-accent mx-auto mb-4">
+      <div className="w-16 h-16 bg-primary/10 drop-shadow-lg from-accent/20 to-cta/20 rounded-xl flex items-center justify-center text-accent mx-auto mb-4">
         {icon}
       </div>
       <h3 className="font-bold text-foreground mb-2">{title}</h3>

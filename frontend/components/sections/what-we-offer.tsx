@@ -6,95 +6,78 @@ import {
   LaptopMinimal,
   Brain,
 } from "lucide-react";
-
+import { Icon } from "@iconify/react";
 
 const services = [
   {
     step: 1,
-    icon: Code,
-    title: "Web Apps Development",
+    icon: "streamline-stickies-color:taxi",
+    title: "Local Taxi",
     description:
-      "Transform your ideas into powerful, scalable web applications tailored to your business needs. We build fast, secure, and user-friendly web solutions that improve efficiency, automate workflows, and deliver exceptional user experiences.",
+      "TripMitra Local Taxi offers safe, reliable, and affordable rides for your everyday travel needs. Book a comfortable taxi for city rides, local errands, airport transfers, and more.",
     highlights: [
-      "Custom Web Application Development",
-      "Responsive & User-Friendly Design",
-      "Secure & Scalable Architecture",
+      "Competitive rates",
+      "Professional drivers",
+      "Instant booking",
     ],
   },
   {
     step: 2,
-    icon: Smartphone,
-    title: "Mobile Apps Development",
+    icon: "streamline-ultimate-color:adventure-car-truck-1",
+    title: "Outstation",
     description:
-      "Bring your ideas to life with high-performance mobile applications designed for iOS and Android platforms. We create intuitive, feature-rich, and scalable mobile apps that enhance user engagement, streamline business operations, and deliver seamless experiences across all devices.",
-    highlights: ["Custom Mobile App Development", "Cross-Platform Compatibility", "Secure & Scalable Solutions"],
+      "TripMitra Outstation provides comfortable, safe, and reliable long-distance travel for family trips, business journeys, and weekend getaways. Enjoy hassle-free intercity rides with professional drivers and well-maintained cars.",
+    highlights: ["Long-distance comfort", "Fuel efficient", "Expert drivers"],
   },
   {
     step: 3,
-    icon: Search,
-    title: "SEO & Digital Marketing",
+    icon: "openmoji:timer",
+    title: "Hourly Rental",
     description:
-      "Boost your online presence and reach the right audience with data-driven SEO and digital marketing strategies. We help businesses increase website traffic, improve search engine rankings, generate quality leads, and maximize ROI through targeted marketing.",
-    highlights: [
-      "Search Engine Optimization (SEO)",
-      "Social Media Marketing (SMM)",
-      "Lead Generation & Growth Strategy",
-    ],
+      "TripMitra Hourly Rental gives you the flexibility to book a car with a professional driver for as many hours as you need. Perfect for meetings, shopping, local sightseeing, events, and multiple stops.",
+    highlights: ["Flexible hours","By the minute pricing","No commitments",],
   },
   {
     step: 4,
-    icon: ShoppingCart,
-    title: "E-Commerce Websites",
+    icon: "streamline-stickies-color:taxi",
+    title: "Airport Transfers",
     description:
-      "Launch and grow your online business with a powerful, user-friendly e-commerce website. We create secure, scalable, and conversion-focused online stores that provide seamless shopping experiences, streamline operations, and help increase sales across all devices.",
+      "TripMitra Airport Transfer offers reliable, comfortable, and timely rides to and from the airport. Enjoy stress-free travel with professional drivers and well-maintained cars, available for early-morning flights and late-night arrivals.",
     highlights: [
-      "Custom Online Store Development",
-      "Secure Payment Gateway Integration",
-      "Mobile Friendly Shopping Experience",
-    ],
+      "Flight tracking","Punctual service","Mobile Friendly Shopping Experience",],
   },
   {
     step: 5,
-    icon: LaptopMinimal,
-    title: "Technical Education",
+    icon: "streamline-plump-color:building-office-flat",
+    title: "Corporate Travels",
     description:
-      "Empower your future with industry-focused technical education designed to build practical skills and real-world expertise. Our programs provide hands-on learning, expert guidance, and the latest technology training to help students and professionals stay competitive.",
-    highlights: [
-      "Industry Relevant Training Programs",
-      "Hands On Learning & Practical Projects",
-      "Expert Mentorship & Career Support",
+      "TripMitra Corporate Travel provides reliable and professional transportation solutions for businesses and corporate travellers. From airport transfers to executive car rentals and intercity business travel, we ensure a smooth and comfortable journey. With dependable service and experienced drivers, TripMitra keeps your business moving with confidence.",
+    highlights: ["Monthly contracts","Priority support","Billing flexibility",
     ],
   },
 
     {
     step: 6,
-    icon: Brain,
-    title: "AI Training",
+    icon: "openmoji:autonomous-car",
+    title: "Wedding Cars",
     description:
-      "Training helps machines learn from data, recognize patterns, and make intelligent decisions. It is the foundation of modern artificial intelligence systems.",
-    highlights: [
-      "Dedicated support",
-      "Regular check-ins",
-      "Performance tracking",
-    ],
+      "TripMitra Wedding Car service adds comfort and elegance to your special day with beautifully maintained cars and professional chauffeurs. Make every wedding journey memorable, stylish, and stress-free.",
+    highlights: ["Luxury vehicles","Professional chauffeurs","Customized packages",],
   },
 ];
 
 export function WhatWeOffer() {
   return (
     <section id="what-we-offer" className="py-20 bg-secondary/20">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-primary text-sm uppercase tracking-widest font-medium">
-            Our Services
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-            What We Offer
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Services designed to elevate your business beyond expectations
-          </p>
-        </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Our Services
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Comprehensive car rental solutions for every need
+              </p>
+            </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((item) => (
@@ -104,7 +87,10 @@ export function WhatWeOffer() {
             >
               {/* Icon */}
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 mt-2 group-hover:bg-primary/20 transition-colors">
-                <item.icon className="w-6 h-6 text-primary" />
+                <Icon
+        icon={item.icon}
+        className="w-8 h-8"
+      />
               </div>
 
               {/* Title */}
