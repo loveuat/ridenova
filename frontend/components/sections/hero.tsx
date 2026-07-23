@@ -1,13 +1,14 @@
 "use client";
 
 import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowRight, Phone } from 'lucide-react'
+//import Link from 'next/link'
+import { Car, ArrowRight, Phone } from 'lucide-react'
 import { motion } from "framer-motion";
 import { Button } from '@/components/ui/button'
 import { BookingForm } from '@/components/sections/booking-form'
 import { Icon } from "@iconify/react";
 import { ColourfulText } from "@/components/ui/colorful-text";
+import LocalizedLink from '@/components/sections/localizedlink';
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-25">
@@ -46,12 +47,22 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link href="/#booking-form">
-                <Button className="bg-primary border-success text-success hover:bg-success hover:text-success-foreground h-12 px-8 text-lg">
-                  Book Now
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <LocalizedLink href="/#booking-form">
+                <div className="flex justify-center">
+                <div className="relative inline-flex">
+                  {/* Pulse glow */}
+                  <span className="absolute inset-0 rounded-xl animate-cta-pulse bg-primary" />
+
+                  {/* Actual Button */}
+                  <Button
+                    className="group relative h-14 px-10 min-w-[220px] text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-105"
+                  >
+                    Book Now
+                    <Car className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </div>
+              </div>
+              </LocalizedLink>
               {/* <a href="tel:+919876543210">
                 <Button variant="outline" className="border-success text-success hover:bg-success hover:text-success-foreground h-12 px-8 text-lg">
                   <Phone className="w-5 h-5 mr-2" />

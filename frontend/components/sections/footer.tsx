@@ -128,6 +128,11 @@ export function Footer() {
             </Link>
           </div>
         </div>
+          <div className="mt-2 flex flex-col items-center justify-center  gap-20 py-1 md:flex-row">
+          <p className="text-sm text-muted-foreground">
+           Desinged and Develoiped by <Link href="https://atulyaitsolutions.com/"><ColourfulText text='Atulya IT Solutions'/></Link>
+          </p>
+          </div>
       </div>
     </footer>
   )

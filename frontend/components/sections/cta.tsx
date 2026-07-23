@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
+import { ColourfulText } from "@/components/ui/colorful-text";
 export function CTA() {
   return (
     <section id="contact" className="py-20 bg-background relative overflow-hidden">
@@ -13,8 +14,7 @@ export function CTA() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 text-balance">
-            Need A {" "} 
-            <span className="text-gradient-orange">Car? </span> Today
+            Need A <ColourfulText text="Car?" colors={["#fdb813", "#0066ff", "#00a8e8"]}/> Today
           </h2>
           <p className="text-lg text-muted-foreground mb-8 text-pretty">
             Book your ride in under one minute with Elite Cabs. Premium service, competitive rates, and guaranteed safety.
