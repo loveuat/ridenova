@@ -1,0 +1,201 @@
+{
+  "Home": {
+    "title": "Next.js Development Company",
+    "subtitle": "Modern websites built with Next.js and Headless WordPress.",
+    "heading": "We Build Reliable, Scalable & Future-Ready",
+    "subheading": "Modern Websites Engineered for Speed, Security & Scalability. Save up to 20% and create secure, user-friendly Web & Mobile Experiences.",
+    "cta": "Get In Touch",
+    "trust1": "100% Full Time Experts",
+    "trust2": "24/7 Support",
+    "trust3": "2,000+ Websites Built",
+    "roles": {
+      "webSolutions": "Web Solutions",
+      "digitalPlatforms": "Digital Platforms",
+      "scalableProducts": "Scalable Products",
+      "customSystems": "Custom Systems",
+      "enterpriseWebsites": "Enterprise Websites",
+      "modernApplications": "Modern Applications"
+    }
+  },
+
+  "Navbar": {
+    "aboutUs": "About Us",
+    "ourProducts": "Our Products",
+    "ourServices": "Our Services",
+    "contact": "Contact",
+    "letsChat": "Let's Chat",
+    "contactUs": "Contact Us",
+    "whatsappTitle": "Atulya IT Solutions",
+    "whatsappReply": "Typically replies within minutes",
+    "whatsappMessage": "👋 Hi there! Need help with WordPress, Next.js, SEO, AI Solutions or a new project?",
+    "whatsappButton": "Start WhatsApp Chat"
+  },
+
+  "Services": {
+    "heading": "Our",
+    "headingHighlight": "Services",
+
+    "wordpress": {
+      "title": "WordPress Developer",
+      "description": "Build custom, high-performance WordPress websites tailored to your business needs.",
+      "feature1": "Custom Theme Development",
+      "feature2": "Plugin Development & Integration",
+      "feature3": "WooCommerce Development"
+    },
+
+    "shopify": {
+      "title": "Shopify Developer",
+      "description": "Create powerful eCommerce experiences with custom Shopify development.",
+      "feature1": "Custom Shopify Development",
+      "feature2": "Payment & Shipping Integration",
+      "feature3": "Conversion Rate Optimization"
+    },
+
+    "woocommerce": {
+      "title": "WooCommerce Developer",
+      "description": "Maintain and optimize your WooCommerce store.",
+      "feature1": "Store Updates",
+      "feature2": "Payment Gateway Support",
+      "feature3": "Performance Optimization"
+    },
+
+    "seo": {
+      "title": "SEO Services",
+      "description": "Improve your search engine rankings and grow your business with data-driven SEO strategies.",
+      "feature1": "Technical SEO Audits",
+      "feature2": "On-Page Content Optimization",
+      "feature3": "SEO Analytics & Reporting"
+    },
+
+    "react": {
+      "title": "React Developer",
+      "description": "Build modern, fast, and interactive web applications with React.",
+      "feature1": "Custom React Application Development",
+      "feature2": "Interactive User Interfaces",
+      "feature3": "Third-Party API Integrations"
+    },
+
+    "nodejs": {
+      "title": "Node.js Developer",
+      "description": "Develop secure, scalable, and high-performance backend applications with Node.js.",
+      "feature1": "REST API & Microservices Development",
+      "feature2": "Third-Party Integrations",
+      "feature3": "Performance Optimization"
+    },
+
+    "maintenance": {
+      "title": "Website Maintenance Services",
+      "description": "Keep your website secure, updated, and performing at its best with proactive maintenance.",
+      "feature1": "Regular Updates & Backups",
+      "feature2": "Security Monitoring",
+      "feature3": "Performance Optimization"
+    },
+
+    "helpdesk": {
+      "title": "Helpdesk Services",
+      "description": "Get reliable technical support and quick issue resolution whenever you need it.",
+      "feature1": "24/7 Technical Support",
+      "feature2": "Bug Fixes & Troubleshooting",
+      "feature3": "Dedicated Assistance"
+    }
+  },
+
+  "CTA": {
+    "title": "Ready to Build Your",
+    "highlight": "Dream App?",
+    "description": "Whether you need a dedicated WordPress developer, full-stack development, or ongoing website maintenance, we help you find the right talent to bring your ideas to life.",
+    "contactButton": "Contact Us",
+    "callButton": "Schedule a Call"
+  },
+
+  "LandingHero": {
+    "subtitle1": "Need a Website That Actually Generates Leads?",
+    "heading1": "Atulya IT Solutions Helps Businesses Build Fast, Modern & Scalable",
+    "cta1": "Get Your Free Quote Today",
+    "trust11": "Save up to 30%",
+    "trust22": "Free Project Consultation",
+    "trust33": "100% Custom Solutions",
+    "roles": {
+      "webSolutions1": "Web Solutions",
+      "digitalPlatforms1": "Digital Platforms",
+      "scalableProducts1": "Scalable Products",
+      "customSystems1": "Custom Systems",
+      "enterpriseWebsites1": "Enterprise Websites",
+      "modernApplications1": "Modern Applications"
+    }
+  },
+
+  "LandingForm": {
+    "title": "Reach Out",
+    "highlight": "Today",
+
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "service": "Choose Services",
+    "selectService": "Select a Service",
+
+    "websiteDevelopment": "Website Development",
+    "wordpressDevelopment": "WordPress Development",
+    "nextjsDevelopment": "Next.js Development",
+    "seo": "SEO Services",
+    "ecommerce": "eCommerce Development",
+    "ai": "AI Automation",
+    "other": "Other",
+
+    "project": "Tell Us About Your Project",
+
+    "timeframe": "Project Time Frame",
+    "timeframePlaceholder": "How time sensitive is your project?",
+    "asap": "I need it ASAP",
+    "notRush": "I'm not in a rush",
+
+    "referrer": "Referrer",
+    "referrerPlaceholder": "How did you hear about us?",
+    "paidAds": "Paid Advertising",
+    "organic": "Organic Search",
+    "returning": "Returning Customer",
+    "referral": "Referral",
+
+    "consent": "I agree to be contacted by Atulya IT Solutions regarding my inquiry. I understand that my information will only be used for communication purposes and will never be shared with third parties.",
+
+    "newsletter": "I want to receive news and service updates from Atulya IT Solutions.",
+
+    "submit": "Submit",
+    "loading": "Please wait...",
+
+    "captcha": "Please verify captcha.",
+
+    "success": "Thank you! Your enquiry has been submitted successfully.",
+    "failed": "Unable to submit your enquiry.",
+    "network": "Network error. Please try again later.",
+
+    "validation": {
+      "name": "Name must be at least 2 characters.",
+      "email": "Please enter a valid email address.",
+      "message": "Message must be at least 10 characters.",
+      "service": "Please select a service.",
+      "consent": "You must accept the Privacy Policy to continue."
+    }
+  },
+  "LandingFooter": {
+    "company": "Atulya IT Solutions",
+    "description": "Hire experienced WordPress, Next.js and Full Stack developers for your next project. Fast delivery, transparent communication and long-term support.",
+
+    "trust": {
+      "experts": "100% Dedicated Experts",
+      "nda": "NDA Protected",
+      "delivery": "Fast Delivery"
+    },
+
+    "heading": "Let's Build Something Great",
+    "subheading": "Tell us about your project and get a free consultation.",
+
+    "cta": "Get Free Consultation",
+
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+
+    "copyright": "© 2026 Atulya IT Solutions. All rights reserved."
+  }
+
+}

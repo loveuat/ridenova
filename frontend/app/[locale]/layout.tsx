@@ -3,10 +3,15 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { GoogleTagManager } from "@next/third-parties/google"; 
 import { GoogleAnalytics } from "@next/third-parties/google";
-import './globals.css'
+import '../globals.css'
 import   AccessibilityButton  from '@/components/sections/accessibilityButton';
 import AccessibilityPanel from '@/components/sections/accessibilityPanel';
 import {AccessibilityProvider} from '@/components/sections/accessibilityProvider';
+import {getMessages} from 'next-intl/server';
+import { CONFIG } from "@/lib/config";
+import { routing } from '@/i18n/routing';
+import { NextIntlClientProvider } from 'next-intl';
+import Preloader from '@/components/sections/preloader';
 const geistSans = Geist({ 
   subsets: ["latin"],
   variable: "--font-geist-sans",
@@ -64,11 +69,17 @@ export const viewport: Viewport = {
   ],
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode
+  params: Promise<{
+    locale: string;
+  }>;
 }>) { 
+   const { locale } = await params;
+  const messages = await getMessages();
    const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -78,8 +89,9 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="bg-background" suppressHydrationWarning>
+    <html lang={locale} className="bg-background" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <Preloader />
          <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -93,7 +105,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
        {/* <AccessibilityProvider> */}
-          {children}
+          {/* ✅ i18n Provider ADDED (safe wrapping only) */}
+          <NextIntlClientProvider locale={locale}  messages={messages}>
+            
+            {/* <AccessibilityProvider> */}
+            {children}
+            {/* <AccessibilityButton />
+            <AccessibilityPanel />
+            </AccessibilityProvider> */}
+
+          </NextIntlClientProvider>
              {/* <AccessibilityButton />
           <AccessibilityPanel />
         </AccessibilityProvider> */}

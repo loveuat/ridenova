@@ -26,8 +26,8 @@ export function WhyChooseUs() {
               <FeatureCard
               icon={
                 <Icon
-                  icon="griddy-icons:private-driver-filled"
-                  className="w-10 h-10 text-[#000000]"
+                  icon="twemoji:police-officer-medium-light-skin-tone"
+                  className="w-10 h-10"
                 />
               }
               title="Professional Drivers"
@@ -36,8 +36,8 @@ export function WhyChooseUs() {
               <FeatureCard
                 icon={
                 <Icon
-                  icon="fluent:sanitize-24-filled"
-                  className="w-10 h-10 text-primary"
+                  icon="openmoji:sanitizer-spray"
+                  className="w-10 h-10"
                 />
               }
                 title="Sanitized Cars"
@@ -56,7 +56,7 @@ export function WhyChooseUs() {
               <FeatureCard
                icon={
                 <Icon
-                  icon="wpf:gps-receiving"
+                  icon="marketeq:gps-fixed"
                   className="w-10 h-10 text-primary"
                 />
               }
@@ -64,22 +64,42 @@ export function WhyChooseUs() {
                 description="Advanced GPS tracking for safe and efficient journey monitoring"
               />
               <FeatureCard
-                icon={<DollarSign className="w-8 h-8" />}
+                 icon={
+                <Icon
+                  icon="tabler:currency-rupee-nepalese"
+                  className="w-10 h-10 text-[#0c6fff]"
+                />
+              }
                 title="Affordable Pricing"
                 description="Best rates in market with transparent billing and no hidden charges"
               />
               <FeatureCard
-                icon={<CheckCircle className="w-8 h-8" />}
+                 icon={
+                <Icon
+                  icon="gcp:billing"
+                  className="w-10 h-10 text-[#0c6fff]"
+                />
+              }
                 title="Corporate Billing"
                 description="Flexible payment options with monthly contracts and invoicing"
               />
               <FeatureCard
-                icon={<Clock className="w-8 h-8" />}
+                 icon={
+                <Icon
+                  icon="noto-v1:ticket"
+                  className="w-10 h-10 text-[#0c6fff]"
+                />
+              }
                 title="Instant Booking"
                 description="Quick and easy booking process in just a few seconds"
               />
               <FeatureCard
-                icon={<TrendingUp className="w-8 h-8" />}
+                 icon={
+                <Icon
+                  icon="twemoji:shield"
+                  className="w-10 h-10 text-[#0c6fff]"
+                />
+              }
                 title="Safe Journey"
                 description="Premium safety features and emergency support services"
               />

@@ -5,6 +5,7 @@ import { Menu, X, MessageCircle, ArrowRight} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import LanguageSwitcher from '@/components/sections/language-switcher';
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -64,7 +65,7 @@ export function Navbar() {
               
 
             <div className="hidden md:flex items-center gap-2">
-                 <Link href="/#booking-form">
+                {/* <Link href="/#booking-form">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                   Sign Up
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -75,15 +76,18 @@ export function Navbar() {
                   Login
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </Link>
+              </Link>*/}
 
-              <ThemeToggle />
-
+             
+              <Link href="/#booking-form">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
               >
                 Book Now
               </Button>
+              </Link>
+               <ThemeToggle />
+                <LanguageSwitcher />
             </div>
 
             {/* Mobile Menu */}
