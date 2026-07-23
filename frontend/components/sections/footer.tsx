@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react"
-
+import { motion } from "framer-motion";
+import { ColourfulText } from "@/components/ui/colorful-text";
 const footerLinks = {
   Company: [
     { label: "About", href: "/about" },
@@ -37,25 +38,25 @@ const socials = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-card">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6 hidden">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-black transition-colors">
+              <div className="flex items-center justify-center transition-colors">
                 <img
-                  src="/aislogo.webp"
-                  alt="Atulya IT Solutions Logo"
+                  src="/tripmitra.webp"
+                  alt="Trip Mitra Go"
                   loading="eager"
-                  className="h-10 w-10 rounded-xl object-contain"
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <div className="flex flex-col leading-tight">
+              {/*<div className="flex flex-col leading-tight">
                 <span className="text-lg font-semibold text-foreground">Atulya IT Solutions</span>
                 <span className="text-xs text-muted-foreground">
                   Analyze. Architect. Accelerate.
                 </span>
-              </div>
+              </div>*/}
             </Link>
             <p className="mb-6 max-w-xs pt-4 text-sm text-muted-foreground">
               Connecting businesses with the world&apos;s top 1% of vetted developers. Remote hiring made simple,
@@ -75,7 +76,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links */}
+                    {/* Links */}
 {Object.entries(footerLinks).map(([category, links], index) => (
   <div key={category}>
     {index < 2 && (
@@ -87,24 +88,37 @@ export function Footer() {
     <ul className="space-y-3">
       {links.map((link) => (
         <li key={link.label}>
-          <Link
-            href={link.href}
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            {link.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-))} 
+                        <Link
+                          href={link.href}
+                          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))} 
+ 
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
+        <div className="mt-2 flex flex-col items-center justify-center  gap-20 py-5 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © 2024 - 2026 Atulya IT Solutions. All rights reserved.
+           &copy; {new Date().getFullYear()} <ColourfulText text='Trip Mitra Go'/>. All rights reserved.
           </p>
+          <div className="flex gap-6">
+             {socials.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors hover:bg-primary/20 hover:text-foreground"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+             </div>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link href="/privacy-policy" className="transition-colors hover:text-foreground">
               Privacy Policy

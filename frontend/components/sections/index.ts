@@ -27,7 +27,10 @@ export { TermsOfServicePage } from "./terms-of-service";
 export { TestimonialEmblaSlider } from "./TestimonialSlider";
 export { BookingSection } from "./hero";
 export { DriveCarSection } from "./drivecarsection";
-export { ServiceCard } from "./cards";
+export { WhyChooseUs } from './why-choose-us';
+export { DestinationsCards } from './destinations-cards'
+export { ServicesCards } from './services-cards'
+
 
 
 

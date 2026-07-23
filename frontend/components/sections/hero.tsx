@@ -3,12 +3,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
+import { motion } from "framer-motion";
 import { Button } from '@/components/ui/button'
 import { BookingForm } from '@/components/sections/booking-form'
-
+import { Icon } from "@iconify/react";
+import { ColourfulText } from "@/components/ui/colorful-text";
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-25">
       {/* Background Image Slider */}
       <div className="absolute inset-0 -z-10">
         <div className="relative w-full h-full">
@@ -29,17 +31,17 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6">
-              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm font-medium text-accent">Trusted by thousands of travelers</span>
-            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-sm font-medium text-primary">Trusted by thousands of travelers</span>
+              </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Reliable Local <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-cta">&</span> Outstation Car Rental
+              <ColourfulText text='Trip Mitra'/> Safe & Reliable Car Rentals for Every Journey
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-lg">
-              Book your taxi in seconds. Professional drivers, sanitized cars, GPS tracking, and 24/7 support for a safe and comfortable journey.
+              Book your car in seconds. Professional drivers, sanitized cars and 24/7 support for a safe and comfortable journey.
             </p>
 
             {/* CTA Buttons */}
@@ -61,15 +63,15 @@ export function Hero() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6">
               <div>
-                <p className="text-2xl font-bold text-primary">5K+</p>
+                <p className="text-2xl font-bold text-primary">100+</p>
                 <p className="text-sm text-muted-foreground">Happy Customers</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-primary">50K+</p>
+                <p className="text-2xl font-bold text-primary">100K+</p>
                 <p className="text-sm text-muted-foreground">Trips Completed</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-primary">8+</p>
+                <p className="text-2xl font-bold text-primary">2+</p>
                 <p className="text-sm text-muted-foreground">Years Service</p>
               </div>
             </div>
@@ -77,22 +79,28 @@ export function Hero() {
 
           {/* Right - Feature Highlights */}
           <div className="z-10 space-y-4">
-            <div className="group bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-6 hover:border-accent hover:shadow-lg transition-all">
+            <div className="group bg-card/80 backdrop-blur-sm rounded-2xl border border-border-primary p-6 hover:border-primary hover:shadow-lg transition-all">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-accent to-cta rounded-lg flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
-                  🚗
+                  <Icon
+                  icon="streamline-stickies-color:safety"
+                  className="w-10 h-10 text-[#000000]"
+                />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">Diverse Fleet</h3>
-                  <p className="text-sm text-muted-foreground">Hatchback, Sedan, SUV, Innova, Ertiga, Tempo & Luxury options</p>
+                  <h3 className="font-bold text-foreground mb-1">Safe Services</h3>
+                  <p className="text-sm text-muted-foreground">Travel with TripMitra's safe, reliable & professional services.</p>
                 </div>
               </div>
             </div>
 
-            <div className="group bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-6 hover:border-accent hover:shadow-lg transition-all">
+            <div className="group bg-card/80 backdrop-blur-sm rounded-2xl border border-border-primary p-6 hover:border-primary hover:shadow-lg transition-all">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-accent to-cta rounded-lg flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
-                  👨‍✈️
+                  <Icon
+                  icon="twemoji:man-police-officer-medium-dark-skin-tone"
+                  className="w-10 h-10 text-[#000000]"
+                />
                 </div>
                 <div>
                   <h3 className="font-bold text-foreground mb-1">Professional Drivers</h3>
@@ -101,22 +109,28 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="group bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-6 hover:border-accent hover:shadow-lg transition-all">
+            <div className="group bg-card/80 backdrop-blur-sm rounded-2xl border border-border-primary p-6 hover:border-primary hover:shadow-lg transition-all">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-accent to-cta rounded-lg flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
-                  🗺️
+                  <Icon
+                  icon="noto-v1:ticket"
+                  className="w-10 h-10 text-[#000000]"
+                />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">GPS Tracking</h3>
-                  <p className="text-sm text-muted-foreground">Real-time location tracking and live route updates</p>
+                  <h3 className="font-bold text-foreground mb-1">Easy Booking</h3>
+                  <p className="text-sm text-muted-foreground">Quick and hassle-free bookings</p>
                 </div>
               </div>
             </div>
 
-            <div className="group bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-6 hover:border-accent hover:shadow-lg transition-all">
+            <div className="group bg-card/80 backdrop-blur-sm rounded-2xl border border-border-primary p-6 hover:border-primary hover:shadow-lg transition-all">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-accent to-cta rounded-lg flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
-                  🛡️
+                  <Icon
+                  icon="streamline-plump-color:call-center-support-service"
+                  className="w-10 h-10 text-[#000000]"
+                />
                 </div>
                 <div>
                   <h3 className="font-bold text-foreground mb-1">24x7 Support</h3>
@@ -152,7 +166,7 @@ export function BookingSection() {
           </p>
         </div>
 
-        <div className="bg-primary rounded-2xl border border-border p-8 shadow-lg">
+        <div className="bg-primary rounded-2xl border border-border-primary p-8 shadow-lg">
           <BookingForm />
         </div>
       </div>
