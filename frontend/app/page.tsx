@@ -5,18 +5,20 @@ import {
   Navbar,
   Hero,
   BookingSection,
+  WhyChooseUs,
   TrustBadges,
   WhatWeOffer,
-  HowItWorks,
-  DeveloperCards,
+  // HowItWorks,
+  DestinationsCards,
+  //ServicesCards,
+  //DeveloperCards,
   PricingComparison,
   TestimonialEmblaSlider,
   CTA,
   Footer,
-  ValuesSection,
-  PortfolioSection,
-  DriveCarSection,
-  ServiceCard
+  //ValuesSection,
+  //PortfolioSection,
+  //DriveCarSection
 } from "@/components/sections";
 
 export const metadata: Metadata = {
@@ -52,19 +54,20 @@ export default function Home() {
 
       <main className="min-h-screen bg-background">
         <Navbar/>
+        {/*<DriveCarSection />*/}
         <Hero />
         <BookingSection />
-        <ServiceCard/>
+        <WhyChooseUs />
         <TrustBadges />
         <WhatWeOffer />
-        <HowItWorks />
-        <DeveloperCards />
-        <ValuesSection />
-        <PortfolioSection />
-        <PricingComparison />
+        <DestinationsCards />
+        {/*<HowItWorks />*/}
+        {/*<DeveloperCards />*/}
+        {/*<ValuesSection />*/}
+        {/*<PortfolioSection />*/}
+        {/*<PricingComparison />*/}
         <TestimonialEmblaSlider />
         <CTA />
-         
         <Footer />
       </main>
     </>
