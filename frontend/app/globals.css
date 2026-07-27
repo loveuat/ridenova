@@ -125,7 +125,9 @@
     @apply bg-background text-foreground;
   }
 }
-
+body {
+  cursor: url("/car.png") 16 16, auto;
+}
 /* Custom gradient text */
 .text-gradient {
   background: linear-gradient(135deg, #fdb813 0%, #ff8a7a 100%);
@@ -206,6 +208,34 @@
 
   100% {
     box-shadow: 0 0 0 0 rgba(253, 184, 19, 0);
+  }
+}
+
+
+.animate-booking-pulse {
+  --pulse-color: rgba(0, 0, 0, 0.6);
+  --pulse-transparent: rgba(0, 0, 0, 0);
+
+  animation: book-cta-pulse 2s ease-in-out infinite;
+}
+
+/* Dark Theme - Strong White Pulse */
+.dark .animate-booking-pulse {
+  --pulse-color: rgba(255, 255, 255, 1);
+  --pulse-transparent: rgba(255, 255, 255, 0);
+}
+
+@keyframes book-cta-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--pulse-color);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px var(--pulse-transparent);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 var(--pulse-transparent);
   }
 }
 .animate-marquee {

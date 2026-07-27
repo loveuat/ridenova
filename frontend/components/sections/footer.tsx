@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react"
 import { motion } from "framer-motion";
 import { ColourfulText } from "@/components/ui/colorful-text";
+import { ColourfulWords } from "@/components/ui/colorful-words";
 const footerLinks = {
   Company: [
     { label: "About", href: "/about" },
@@ -105,7 +106,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-2 flex flex-col items-center justify-center  gap-20 py-5 md:flex-row">
           <p className="text-sm text-muted-foreground">
-           &copy; {new Date().getFullYear()} <ColourfulText text='Trip Mitra Go'/>. All rights reserved.
+           &copy; {new Date().getFullYear()} <ColourfulWords text='Trip Mitra Go'/>. All rights reserved.
           </p>
           <div className="flex gap-6">
              {socials.map(({ Icon, href, label }) => (
@@ -130,7 +131,7 @@ export function Footer() {
         </div>
           <div className="mt-2 flex flex-col items-center justify-center  gap-20 py-1 md:flex-row">
           <p className="text-sm text-muted-foreground">
-           Desinged and Develoiped by <Link href="https://atulyaitsolutions.com/"><ColourfulText text='Atulya IT Solutions'/></Link>
+           Desinged and Develoiped by <Link href="https://atulyaitsolutions.com/"><ColourfulWords text='Atulya IT Solutions'/></Link>
           </p>
           </div>
       </div>

@@ -93,7 +93,7 @@ export function Navbar() {
             {/* Mobile Menu */}
             <div className="md:hidden flex items-center gap-2">
               <ThemeToggle />
-
+              <LanguageSwitcher />
               <button
                 className="text-foreground"
                 onClick={() => setIsOpen(!isOpen)}

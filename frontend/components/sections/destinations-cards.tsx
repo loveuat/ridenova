@@ -1,79 +1,121 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { ServiceCard, FeatureCard, DestinationCard, TestimonialCard, StatCard } from '@/components/sections/cards'
-import { 
-  Car, Shield, Clock, MapPin, Users, Zap, Award, TrendingUp,
-  Headphones, DollarSign, CheckCircle, Navigation, CarFront 
-} from 'lucide-react'
-import { Icon } from "@iconify/react";
+import { useEffect, useState } from 'react'
+import { DestinationCard } from '@/components/sections/cards'
+import { ColourfulWords } from "@/components/ui/colorful-words";
+interface PopularRoute {
+  id: number
+  image: string | null
+  from_city: string
+  to_city: string
+  price: number
+  distance: string
+  trip_time: string
+}
 
-{/* Why Choose Us */}
 export function DestinationsCards() {
-  return (
-        <section className="py-16 md:py-24 bg-muted/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Popular Routes
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Explore our most requested destinations
-              </p>
-            </div>
+  const [routes, setRoutes] = useState<PopularRoute[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <DestinationCard
-                image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
-                from="Lalburra"
-                to="Maihar"
-                price="₹800"
-                distance="65"
-                duration="2h 15m"
+  useEffect(() => {
+    const fetchPopularRoutes = async () => {
+      try {
+        setLoading(true)
+
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/popular-routes`,
+          {
+            method: 'GET',
+            cache: 'no-store',
+          }
+        )
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch popular routes')
+        }
+
+        const data = await response.json()
+
+        setRoutes(data)
+      } catch (error) {
+        console.error('Popular routes error:', error)
+        setError('Unable to load popular routes.')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPopularRoutes()
+  }, [])
+
+  return (
+    <section className="py-16 md:py-24 bg-muted/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Popular Routes
+          </h2>
+
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore our most requested destinations
+          </p>
+        </div>
+
+        {/* Loading */}
+        {loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <div
+                key={item}
+                className="h-[350px] rounded-xl bg-muted animate-pulse"
               />
-              <DestinationCard
-                image="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop"
-                from="Lalburra"
-                to="Dongargarh"
-                price="₹1,200"
-                distance="95"
-                duration="3h 30m"
-              />
-              <DestinationCard
-                image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
-                from="Balaghat"
-                to="Nagpur Airport"
-                price="₹1,500"
-                distance="120"
-                duration="3h 45m"
-              />
-              <DestinationCard
-                image="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop"
-                from="Balaghat"
-                to="Raipur Airport"
-                price="₹2,000"
-                distance="180"
-                duration="5h"
-              />
-              <DestinationCard
-                image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
-                from="Balaghat"
-                to="Jabalpur"
-                price="₹1,100"
-                distance="85"
-                duration="2h 45m"
-              />
-              <DestinationCard
-                image="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop"
-                from="Balaghat"
-                to="Kanha National Park"
-                price="₹1,800"
-                distance="150"
-                duration="4h 30m"
-              />
-            </div>
+            ))}
           </div>
-        </section>
+        )}
+
+        {/* Error */}
+        {!loading && error && (
+          <div className="text-center py-10">
+            <p className="text-red-500">
+              {error}
+            </p>
+          </div>
+        )}
+
+        {/* Empty */}
+        {!loading && !error && routes.length === 0 && (
+          <div className="text-center py-10">
+            <p className="text-muted-foreground">
+              No popular routes available at the moment.
+            </p>
+          </div>
+        )}
+
+        {/* Routes */}
+        {!loading && !error && routes.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {routes.map((route) => (
+              <DestinationCard
+                key={route.id}
+                image={
+                  route.image?.startsWith("http")
+                    ? route.image
+                    : "/images/default-route.jpg"
+                }
+                from={route.from_city}
+                to={route.to_city}
+                price={`₹${route.price.toLocaleString('en-IN')}`}
+                distance={route.distance}
+                duration={route.trip_time}
+              />
+            ))}
+          </div>
+        )}
+
+      </div>
+    </section>
   )
 }
-  
