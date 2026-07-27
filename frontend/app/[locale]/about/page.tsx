@@ -5,10 +5,11 @@ import {
   Hero,
   CTA,
   Footer,
-  ValuesSection,
+  //ValuesSection,
+   WhyChooseUs,
   MissionSection,
-  TimelineSection,
-  DeveloperCards,
+  //TimelineSection,
+  //DeveloperCards,
   TestimonialEmblaSlider,
 } from "@/components/sections";
 
@@ -23,10 +24,11 @@ export default function AboutPage() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <ValuesSection />
+      {/*<ValuesSection />*/}
+      < WhyChooseUs />
       <MissionSection />
-      <TimelineSection />
-      <DeveloperCards />
+      {/*<TimelineSection />
+      <DeveloperCards />*/}
       <TestimonialEmblaSlider />
       <CTA />
       <Footer />

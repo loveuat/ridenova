@@ -2,16 +2,17 @@
 
 import Image from 'next/image'
 //import Link from 'next/link'
-import { Car, ArrowRight, Phone } from 'lucide-react'
+import { Car, ArrowRight, Phone, CarFront, ArrowDown} from 'lucide-react'
 import { motion } from "framer-motion";
 import { Button } from '@/components/ui/button'
 import { BookingForm } from '@/components/sections/booking-form'
 import { Icon } from "@iconify/react";
-import { ColourfulText } from "@/components/ui/colorful-text";
+import { ColourfulWords } from "@/components/ui/colorful-words";
 import LocalizedLink from '@/components/sections/localizedlink';
+import {ScrollToBooking}  from '@/components/sections/scroll-indicator';
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-25">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-25 pb-20">
       {/* Background Image Slider */}
       <div className="absolute inset-0 -z-10">
         <div className="relative w-full h-full">
@@ -38,7 +39,7 @@ export function Hero() {
               </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              <ColourfulText text='Trip Mitra'/> Safe & Reliable Car Rentals for Every Journey
+              <ColourfulWords text='Trip Mitra'/> Safe & Reliable Car Rentals for Every Journey
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-lg">
@@ -78,7 +79,7 @@ export function Hero() {
                 <p className="text-sm text-muted-foreground">Happy Customers</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-primary">100K+</p>
+                <p className="text-2xl font-bold text-primary">100+</p>
                 <p className="text-sm text-muted-foreground">Trips Completed</p>
               </div>
               <div>
@@ -154,11 +155,7 @@ export function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-        <div className="w-6 h-10 border-2 border-accent rounded-full flex items-center justify-center">
-          <div className="w-1 h-2 bg-accent rounded-full animate-pulse" />
-        </div>
-      </div>
+      <ScrollToBooking />
     </section>
   )
 }

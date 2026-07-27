@@ -2,7 +2,8 @@ import { ReactNode } from 'react'
 import Image from 'next/image'
 import { Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-
+import Link from "next/link";
+import { ColourfulWords } from "@/components/ui/colorful-words";
 interface ServiceCardProps {
   icon: ReactNode
   title: string
@@ -61,7 +62,7 @@ interface DestinationCardProps {
 
 export function DestinationCard({ image, from, to, price, distance, duration }: DestinationCardProps) {
   return (
-    <div className="group bg-card rounded-xl overflow-hidden border border-border hover:border-accent hover:shadow-lg transition-all duration-300">
+    <div className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
       <div className="relative h-40 bg-muted overflow-hidden">
         <Image
           src={image}
@@ -77,11 +78,15 @@ export function DestinationCard({ image, from, to, price, distance, duration }: 
         <div className="flex items-center justify-between">
           <div>
             <p className="text-xs text-muted-foreground">Starting from</p>
-            <p className="text-lg font-bold text-accent">{price}</p>
+            <ColourfulWords text={price} />
           </div>
-          <Button size="sm" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-            Details
-          </Button>
+          <Link href="/#booking-form">
+              <Button
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                Book Now
+              </Button>
+              </Link>
         </div>
       </div>
     </div>
