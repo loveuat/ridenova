@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://atulyaitsolutions.com/',
+  siteUrl: 'https://www.tripmitrago.in/',
   generateRobotsTxt: true,
 };
