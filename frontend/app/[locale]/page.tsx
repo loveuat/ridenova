@@ -20,12 +20,13 @@ import {
   //ValuesSection,
   //PortfolioSection,
   //DriveCarSection
+  FAQSection
 } from "@/components/sections";
 
 export const metadata: Metadata = {
   title: "Trip Mitra Go| Car Rental Services",
   description:
-    "Atulya IT Solutions provides Web Development, WordPress Development, Next.js Development, SEO Services, Website Maintenance and Digital Marketing solutions.",
+    "Book reliable car rental and taxi services in Balaghat with Trip Mitra. Airport transfers, outstation cabs, one-way taxi, wedding cars, corporate travel, Innova Crysta, Tempo Traveller and 24×7 booking across Central India.",
 };
 
 const homepageSchema = {
@@ -68,7 +69,8 @@ export default function Home() {
         {/*<PortfolioSection />*/}
         {/*<PricingComparison />*/}
         <TestimonialEmblaSlider />
-        <CTA />
+        <FAQSection />
+         <CTA />
         <Footer />
       </main>
     </>
