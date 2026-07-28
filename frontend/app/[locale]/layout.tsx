@@ -122,7 +122,7 @@ export default async function RootLayout({
           <AccessibilityPanel />
         </AccessibilityProvider> */}
         </ThemeProvider>
-        {process.env.NODE_ENV === 'production' && <GoogleTagManager gtmId="GTM-NGSMM74C" /> && <GoogleAnalytics gaId="G-4EEMQTK68G" />}
+        {process.env.NODE_ENV === 'production' && <GoogleTagManager gtmId="GTM-PXTQWV56" /> && <GoogleAnalytics gaId="G-6LPM5NJ8K4" />}
       </body>
       
     </html>
