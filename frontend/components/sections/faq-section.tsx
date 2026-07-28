@@ -7,34 +7,34 @@ import {
 
 const faqs = [
   {
-    question: "What services does SmartWorking provide?",
+    question: "What is Trip Mitra Go?",
     answer:
-      "We provide comprehensive digital transformation solutions including web development, mobile applications, cloud infrastructure, AI integration, and strategic consulting to help businesses thrive in the digital age.",
+      "Trip Mitra Go is a trusted car rental and taxi booking platform offering local, outstation, airport transfer, one-way, and round-trip cab services with professional drivers and transparent pricing.",
   },
   {
-    question: "How long does a typical project take?",
+    question: "Which cities does Trip Mitra Go serve?",
     answer:
-      "Project timelines vary based on scope and complexity. A simple website might take 4-6 weeks, while enterprise solutions can span 3-6 months. We provide detailed timelines during our initial consultation.",
+      "Trip Mitra Go primarily serves Central India, including Raipur, Bilaspur, Durg, Bhilai, Jagdalpur, Jabalpur, Balaghat, Gondia, Nagpur, and nearby cities. We are continuously expanding our service network.",
   },
   {
-    question: "Do you offer ongoing support and maintenance?",
+    question: "What types of trips can I book?",
     answer:
-      "Yes, we offer flexible support packages including 24/7 monitoring, regular updates, security patches, and dedicated account management to ensure your solutions run smoothly.",
+      "You can book:Local city rides, Outstation trips, One-way cabs, Round-trip bookings, Airport transfers, Railway station pickups, Wedding car rentals,Corporate travel",
   },
   {
-    question: "What industries do you specialize in?",
+    question: "How can I book a car?",
     answer:
-      "We work across diverse sectors including fintech, healthcare, e-commerce, real estate, and SaaS. Our team adapts quickly to industry-specific requirements and compliance standards.",
+      "Yes. We believe in transparent pricing with no hidden charges. Any tolls, parking fees, or state taxes (if applicable) are communicated clearly before your trip.",
   },
   {
-    question: "How do you ensure project quality?",
+    question: "Are your prices transparent?",
     answer:
       "We follow agile methodologies with regular sprint reviews, automated testing, code reviews, and QA processes. Clients receive progress updates and demos throughout the development cycle.",
   },
   {
-    question: "What is your pricing model?",
+    question: "Can I modify or cancel my booking?",
     answer:
-      "We offer flexible pricing including fixed-price projects, time & materials, and retainer arrangements. We&apos;ll recommend the best model based on your project requirements during our discovery call.",
+      "Yes. Booking modifications and cancellations are available according to our cancellation policy. Please contact our support team as early as possible.",
   },
 ];
 
@@ -43,15 +43,14 @@ export function FAQSection() {
     <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider hidden">
             FAQ
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4">
             Frequently Asked Questions
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-            Find answers to common questions about our services, process, and
-            how we can help your business grow.
+            Find answers to frequently asked questions about booking a cab, our services, fares, cancellations, and everything you need to know before your journey with Trip Mitra Go.
           </p>
         </div>
 

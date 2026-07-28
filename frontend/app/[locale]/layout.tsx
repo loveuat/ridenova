@@ -86,7 +86,7 @@ export default async function RootLayout({
    const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Atulya IT Solutions",
+    name: "Trip Mitra Go",
     url: "https://tripmitrago.in/",
     logo: "https://tripmitrago.in/tripmitralogo.webp",
   };
