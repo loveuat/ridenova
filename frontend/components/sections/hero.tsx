@@ -10,7 +10,9 @@ import { Icon } from "@iconify/react";
 import { ColourfulWords } from "@/components/ui/colorful-words";
 import LocalizedLink from '@/components/sections/localizedlink';
 import {ScrollToBooking}  from '@/components/sections/scroll-indicator';
+import { useTranslations } from "next-intl";
 export function Hero() {
+  const t = useTranslations("Hero");
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-25 pb-20">
       {/* Background Image Slider */}
@@ -39,7 +41,8 @@ export function Hero() {
               </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              <ColourfulWords text='Trip Mitra'/> Safe & Reliable Car Rentals for Every Journey
+            <ColourfulWords text={t("brand")} /> {t("heading")}{" "}
+            
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-lg">

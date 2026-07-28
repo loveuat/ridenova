@@ -29,7 +29,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-2">
               <div className="flex items-center justify-center transition-colors">
                 <img
-                  src="/tripmitra.webp"
+                  src="/tripmitralogo.webp"
                   alt="Trip Mitra Go"
                   loading="eager"
                   className="w-full h-full object-contain"
@@ -150,7 +150,7 @@ export function Navbar() {
           <div className="bg-green-500 p-4 text-white flex items-center justify-between">
             <div>
               <h3 className="font-bold">
-                Atulya IT Solutions
+                Trip Mitra Go
               </h3>
               <p className="text-xs opacity-90">
                 Typically replies within minutes
@@ -168,8 +168,7 @@ export function Navbar() {
               <p className="text-sm">
                 👋 Hi there!
                 <br />
-                Need help with WordPress, Next.js, SEO, AI Solutions or a new
-                project?
+                Planning a Trip? Get your car in seconds
               </p>
             </div>
           </div>
@@ -177,7 +176,7 @@ export function Navbar() {
           {/* Action Button */}
           <div className="p-4">
             <a
-              href="https://wa.me/918770570764?text=Hi%20Atulya%20IT%20Solutions,%20I%20want%20to%20discuss%20my%20project."
+              href="https://wa.me/918770570764?text=Hi%20Trip%20Mitra%20Go,%20I%20want%20to%20discuss%20my%20tour%20plan."
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full rounded-lg bg-green-500 py-3 text-center font-semibold text-white hover:bg-green-600 transition"

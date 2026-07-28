@@ -1,8 +1,9 @@
 {
-  "Home": {
-    "title": "Next.js Development Company",
+  "Hero": {
+    "title": "Trip Mitra Go",
     "subtitle": "Modern websites built with Next.js and Headless WordPress.",
-    "heading": "We Build Reliable, Scalable & Future-Ready",
+    "heading": "Safe & Reliable Car Rentals for Every Journey",
+    "brand": "Trip Mitra Go",
     "subheading": "Modern Websites Engineered for Speed, Security & Scalability. Save up to 20% and create secure, user-friendly Web & Mobile Experiences.",
     "cta": "Get In Touch",
     "trust1": "100% Full Time Experts",

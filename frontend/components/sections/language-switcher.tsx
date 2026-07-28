@@ -66,7 +66,7 @@ export default function LanguageSwitcher() {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-3 w-48 rounded-xl border border-gray-200 bg-white p-2 shadow-xl">
+        <div className="absolute right-0 top-full z-50 mt-3 w-48 rounded-xl border border-gray-200 bg-background p-2 shadow-xl">
           {languages.map((language) => {
             const isSelected =
               currentLocale === language.code;
@@ -79,7 +79,7 @@ export default function LanguageSwitcher() {
                   changeLanguage(language.code)
                 }
                 disabled={isPending}
-                className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left hover:bg-gray-100"
+                className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left hover:bg-gray-20"
               >
                 <Globe className="h-5 w-5" />
 

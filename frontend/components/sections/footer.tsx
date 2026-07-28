@@ -3,6 +3,7 @@ import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react"
 import { motion } from "framer-motion";
 import { ColourfulText } from "@/components/ui/colorful-text";
 import { ColourfulWords } from "@/components/ui/colorful-words";
+import { Icon } from "@iconify/react";
 const footerLinks = {
   Company: [
     { label: "About", href: "/about" },
@@ -104,9 +105,9 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-2 flex flex-col items-center justify-center  gap-20 py-5 md:flex-row">
+        <div className="mt-2 flex flex-col items-center justify-center  gap-2 md:gap-20 py-5 md:flex-row">
           <p className="text-sm text-muted-foreground">
-           &copy; {new Date().getFullYear()} <ColourfulWords text='Trip Mitra Go'/>. All rights reserved.
+           &copy; {new Date().getFullYear()} <ColourfulWords text='Trip Mitra Go'/> All rights reserved.
           </p>
           <div className="flex gap-6">
              {socials.map(({ Icon, href, label }) => (
@@ -129,9 +130,9 @@ export function Footer() {
             </Link>
           </div>
         </div>
-          <div className="mt-2 flex flex-col items-center justify-center  gap-20 py-1 md:flex-row">
+          <div className="mt-2 flex flex-col items-center justify-center  gap-2 md:gap-20 py-1 md:flex-row">
           <p className="text-sm text-muted-foreground">
-           Desinged and Develoiped by <Link href="https://atulyaitsolutions.com/"><ColourfulWords text='Atulya IT Solutions'/></Link>
+           Desinged and Develoiped by <Link target="_blank" href="https://atulyaitsolutions.com/"><ColourfulWords text='Atulya IT Solutions'/></Link>
           </p>
           </div>
       </div>
