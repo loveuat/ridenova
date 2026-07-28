@@ -14,9 +14,9 @@ import {
 } from "@/components/sections";
 
 export const metadata: Metadata = {
-  title: "About Us | IT Solutions & Software Development Company",
+  title: "About Us | Trip Mitra Go, Car Rental & Taxi Service in Balaghat",
   description:
-    "Learn about our expertise in Web Development, WordPress, Next.js, SEO and Digital Marketing services.",
+    "Book reliable car rental and taxi services in Balaghat with Trip Mitra. Airport transfers, outstation cabs, one-way taxi, wedding cars, corporate travel, Innova Crysta, Tempo Traveller and 24×7 booking across Central India.",
 };
 
 export default function AboutPage() {
