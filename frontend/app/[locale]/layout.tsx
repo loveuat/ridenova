@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     metadataBase: new URL("https://tripmitrago.in/"),
 
   title: {
-    default: "Trip Mitra Go",
+    default: "Trip Mitra Go ",
     template: "%s | Trip Mitra Go | Car Rental & Taxi Service in Balaghat | Airport & Outstation Cabs",
   },
 
