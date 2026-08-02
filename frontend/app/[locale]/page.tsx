@@ -20,7 +20,8 @@ import {
   //ValuesSection,
   //PortfolioSection,
   //DriveCarSection
-  FAQSection
+  FAQSection,
+  //RunningCar
 } from "@/components/sections";
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default function Home() {
         {/*<DriveCarSection />*/}
         <Hero />
         <BookingSection />
+        {/*<RunningCar />*/}
         <WhyChooseUs />
         <TrustBadges />
         <WhatWeOffer />
@@ -70,8 +72,10 @@ export default function Home() {
         {/*<PricingComparison />*/}
         <TestimonialEmblaSlider />
         <FAQSection />
-         <CTA />
+        <CTA />
+        
         <Footer />
+
       </main>
     </>
   );
