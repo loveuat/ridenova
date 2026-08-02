@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import LanguageSwitcher from '@/components/sections/language-switcher';
-
+import { Icon } from "@iconify/react";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
@@ -135,11 +135,16 @@ export function Navbar() {
       {/* Floating WhatsApp Bubble */}
       {!showWhatsapp && (
         <button
-          onClick={() => setShowWhatsapp(true)}
-          className="fixed bottom-6 right-6 z-[100] flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-xl hover:scale-110 transition-all duration-300"
-        >
-          <MessageCircle size={28} />
-        </button>
+  onClick={() => setShowWhatsapp(true)}
+  className="fixed bottom-6 right-6 z-[100] flex h-12 w-12 items-center justify-center rounded-full bg-green-500 p-2 text-white shadow-xl transition-all duration-300 hover:scale-110"
+>
+  <div className="flex h-full w-full items-center justify-center rounded-full bg-green-600">
+    <Icon
+      icon="selfhst:whatsapp"
+      className="h-6 w-6"
+    />
+  </div>
+</button>
       )}
 
       {/* WhatsApp Popup */}

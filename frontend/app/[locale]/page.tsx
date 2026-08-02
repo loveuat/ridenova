@@ -25,7 +25,7 @@ import {
 } from "@/components/sections";
 
 export const metadata: Metadata = {
-  title: "Trip Mitra Go| Car Rental Services",
+  title: "Trip Mitra Go | Car Rental Services",
   description:
     "Book reliable car rental and taxi services in Balaghat with Trip Mitra. Airport transfers, outstation cabs, one-way taxi, wedding cars, corporate travel, Innova Crysta, Tempo Traveller and 24×7 booking across Central India.",
 };
