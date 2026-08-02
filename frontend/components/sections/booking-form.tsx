@@ -12,65 +12,64 @@ import LocalizedLink  from "@/components/sections/localizedlink";
 const siteKey =
   process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 type Status = "idle" | "loading" | "success" | "error";
-export const bookingSchema = z.object({
-   tripType: z
-  .string()
-  .min(1, "Please select a service"),
-  name: z
-    .string()
-    .trim()
-    .min(2, "Name must be at least 2 characters"),
-  pickupLocation: z
-    .string()
-    .trim()
-    .min(2, "Please enter pickup location"),
+export const bookingSchema = z
+  .object({
+    tripType: z
+      .string()
+      .min(1, "Please select a service"),
+
+    name: z
+      .string()
+      .trim()
+      .min(2, "Name must be at least 2 characters"),
+
+    pickupLocation: z
+      .string()
+      .trim()
+      .min(2, "Please enter pickup location"),
+
     dropLocation: z
-    .string()
-    .trim()
-    .min(2, "Please enter drop location"),
+      .string()
+      .trim()
+      .min(2, "Please enter drop location"),
+
     pickupDate: z
-  .string()
-  .min(1, "Please select pickup date")
+      .string()
+      .min(1, "Please select pickup date")
+      .refine(
+        (date) => {
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          const selectedDate = new Date(date);
+          selectedDate.setHours(0, 0, 0, 0);
+
+          return selectedDate >= today;
+        },
+        {
+          message: "Pickup date cannot be in the past",
+        }
+      ),
+
+    email: z
+      .string()
+      .trim()
+      .email("Invalid email address"),
+
+    phone: z
+      .string()
+      .trim()
+      .min(10, "Phone number is too short"),
+  })
   .refine(
-    (date) => {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-
-      const selectedDate = new Date(date);
-      selectedDate.setHours(0, 0, 0, 0);
-
-      return selectedDate >= today;
-    },
+    (data) =>
+      data.pickupLocation.trim().toLowerCase() !==
+      data.dropLocation.trim().toLowerCase(),
     {
-      message: "Pickup date cannot be in the past",
+      message: "Pickup and Drop locations cannot be the same.",
+      path: ["dropLocation"], // Error drop field ke niche show hoga
     }
-  ),
-  email: z
-    .string()
-    .trim()
-    .email("Invalid email address"),
-  phone: z
-    .string()
-    .trim()
-    .min(10, "Phone number is too short"),
-
-  // message: z
-  //   .string()
-  //   .trim()
-  //   .min(10, "Message must be at least 10 characters"),
-//   consent: z.literal(true, {
-//   errorMap: () => ({
-//     message:
-//       "You must accept the Privacy Policy to continue"
-//   })
-// }),
-
-  //order_timeframe: z.string().optional(),
-
-//  order_referer: z.string().optional(),
- // news_checkbox:  z.boolean().optional()
-});
-
+  );
 type BookingForm = z.infer<typeof bookingSchema>;
 
 export function BookingForm() {
@@ -90,7 +89,7 @@ const [errors, setErrors] = useState<
     pickupTime: '',
     tripType: '',
     passengers: '1',
-    //carType: 'XL6',
+    carType: 'XL6',
     name: '',
     phone: '',
     email: '',
@@ -252,34 +251,21 @@ if (element) {
 
   try {
 
+  const payload = {
+  ...formData,
+  pickupTime: formData.pickupTime || null,
+  specialInstructions: formData.specialInstructions || null,
+  turnstile_token: captchaToken,
+};
 
-    // const payload = {
-    //   form_id: 9,
-    //   captcha: captchaToken,
-    //   fields: {
-    //     "name-1": form.name,
-    //     "email-1": form.email,
-    //     "phone-1": form.phone,
-    //     "textarea-1": form.message,
-    //     "select-1": form.service,
-    //     "select-2": form.order_timeframe,
-    //     "select-3": form.order_referer,
-    //     "consent-1": form.consent,
-    //     "checkbox-1": form.news_checkbox
-    //   }
-    // };
-
-    const contacts = await fetch(
+const contacts = await fetch(
   `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/bookings`,
   {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      ...formData,
-      turnstile_token: captchaToken,
-    }),
+    body: JSON.stringify(payload),
   }
 );
 
