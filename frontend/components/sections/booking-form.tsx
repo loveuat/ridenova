@@ -8,6 +8,7 @@ import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { CONFIG } from "@/lib/config";
+import LocalizedLink  from "@/components/sections/localizedlink";
 const siteKey =
   process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 type Status = "idle" | "loading" | "success" | "error";
@@ -89,7 +90,7 @@ const [errors, setErrors] = useState<
     pickupTime: '',
     tripType: '',
     passengers: '1',
-    carType: 'XL6',
+    //carType: 'XL6',
     name: '',
     phone: '',
     email: '',
@@ -126,11 +127,27 @@ const [errors, setErrors] = useState<
 
     const data = await response.json()
 
-    if (type === 'pickup') {
-      setPickupSuggestions(data)
-    } else {
-      setDropSuggestions(data)
-    }
+    if (type === "pickup") {
+  setPickupSuggestions(data);
+
+  setErrors((prev) => ({
+    ...prev,
+    pickupLocation:
+      data.length === 0 && query.trim().length >= 2
+        ? "Not serving this location."
+        : "",
+  }));
+} else {
+  setDropSuggestions(data);
+
+  setErrors((prev) => ({
+    ...prev,
+    dropLocation:
+      data.length === 0 && query.trim().length >= 2
+        ? "Not serving this location."
+        : "",
+  }));
+}
   } catch (error) {
     console.error('Location search error:', error)
   }
@@ -161,6 +178,28 @@ const [errors, setErrors] = useState<
 const [status, setStatus] = useState<Status>("idle");
   const [feedback, setFeedback] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
+const validateLocations = (
+  pickup?: string,
+  drop?: string
+) => {
+  const pickupValue = (pickup ?? "").trim().toLowerCase();
+  const dropValue = (drop ?? "").trim().toLowerCase();
+
+  const same =
+    pickupValue !== "" &&
+    dropValue !== "" &&
+    pickupValue === dropValue;
+
+  setErrors((prev) => ({
+    ...prev,
+    pickupLocation: same
+      ? "Pickup and Drop locations cannot be the same."
+      : "",
+    dropLocation: same
+      ? "Pickup and Drop locations cannot be the same."
+      : "",
+  }));
+};
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
@@ -192,7 +231,7 @@ if (element) {
       name: fieldErrors.name?.[0],
       email: fieldErrors.email?.[0],
       phone: fieldErrors.phone?.[0],
-      subject: fieldErrors.phone?.[0],
+      //subject: fieldErrors.phone?.[0],
       //message: fieldErrors.message?.[0],
       pickupLocation: fieldErrors.pickupLocation?.[0],
       dropLocation: fieldErrors.dropLocation?.[0],
@@ -255,12 +294,12 @@ if (element) {
 
       setFormData({
         tripType: "",
-        carType: "",
+        //carType: "",
         pickupLocation: "",
         dropLocation: "",
         pickupDate: "",
         pickupTime: "",
-        passengers: "",
+        //passengers: "",
         name: "",
         email: "",
         phone: "",
@@ -391,7 +430,7 @@ if (element) {
 </div>
 {/* Trip Type End */}
                 {/* Car Type Start */}
-               <div className="relative">
+               {/* <div className="relative">
   <label
     htmlFor="carType"
     className="
@@ -409,9 +448,7 @@ if (element) {
   >
     Car Type <span className="text-red-500">*</span>
   </label>
-
-  {/* Select Wrapper */}
-  <div
+    <div
     className={cn(
       "rounded-md border-border-background bg-primary transition-colors dark:border-black/25",
       errors.carType
@@ -497,15 +534,102 @@ if (element) {
     </select>
   </div>
 
-  {/* Error Message */}
- {/* {errors.subject && (
+ 
+  {errors.subject && (
     <p className="mt-1 text-sm text-red-500">
       {errors.subject}
     </p>
-  )}*/}
-</div>
+  )}
+</div>*/}
 {/* Car Type End */}
+ {/* Passengers */}
+      <div className="relative">
+  <label
+    htmlFor="carType"
+    className="
+      absolute
+      -top-2.5
+      left-3
+      bg-primary
+      px-1
+      text-xs
+      font-medium
+      text-background
+      z-10
+      rounded-md
+    "
+  >
+    Number Of Passengers <span className="text-red-500">*</span>
+  </label>
 
+  {/* Select Wrapper */}
+  <div
+    className={cn(
+      "rounded-md border-border-background bg-primary transition-colors dark:border-black/25",
+      errors.carType
+        ? "!border-red-500 focus-within:!border-red-500 focus-within:!ring-0"
+        : "border-input focus-within:border-ring focus-within:ring-1 focus-within:ring-ring"
+    )}
+  >
+    <select
+      id="passengers"
+      value={formData.passengers}
+      onChange={(e) => {
+  const value = e.target.value;
+
+  setFormData({
+    ...formData,
+    passengers: value,
+  });
+
+  if (!value) {
+    setErrors({
+      ...errors,
+      passengers: "Please choose car type",
+    });
+  } else {
+    setErrors({
+      ...errors,
+      passengers: "",
+    });
+  }
+}}
+      className="
+        h-16
+        w-full
+        rounded-md
+        border-0
+        bg-background
+        px-4
+        text-sm
+        text-foreground
+        outline-none
+        shadow-none
+        focus:border-0
+        focus:outline-none
+        focus:ring-0
+        focus-visible:ring-0
+        focus-visible:ring-offset-0
+      "
+    >
+    <option value="">Select Passengers</option>
+
+  {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
+    <option  className="bg-background text-foreground" key={num} value={num}>
+      {num} Passenger{num > 1 ? 's' : ''}
+    </option>
+  ))}
+      
+      </select>
+  </div>
+
+  {/* Error Message */}
+  {errors.passengers && (
+    <p className="mt-1 text-sm text-red-500">
+      {errors.passengers}
+    </p>
+  )}
+</div>
       
       </div>
 
@@ -544,30 +668,33 @@ if (element) {
       type="text"
       name="pickupLocation"
       value={formData.pickupLocation}
-      onChange={(e) => {
-        const value = e.target.value;
+onChange={(e) => {
+  const value = e.target.value;
 
-        handleChange(e);
+  searchLocations(value, "pickup");
 
-        searchLocations(value, "pickup");
+  setFormData((prev) => {
+    const updated = {
+      ...prev,
+      pickupLocation: value,
+    };
 
-        setFormData((prev) => ({
-          ...prev,
-          pickupLocation: value,
-        }));
+    validateLocations(
+      updated.pickupLocation,
+      updated.dropLocation
+    );
 
-        if (!value.trim()) {
-          setErrors((prev) => ({
-            ...prev,
-            pickupLocation: "Pickup Location is required",
-          }));
-        } else {
-          setErrors((prev) => ({
-            ...prev,
-            pickupLocation: "",
-          }));
-        }
-      }}
+    return updated;
+  });
+
+  setErrors((prev) => ({
+    ...prev,
+    pickupLocation: value.trim()
+      ? ""
+      : "Pickup Location is required",
+  }));
+}}
+
       placeholder="Enter pickup location"
       required
       autoComplete="off"
@@ -601,13 +728,22 @@ if (element) {
             key={location.id}
             type="button"
             onClick={() => {
-              setFormData((prev) => ({
-                ...prev,
-                pickupLocation: location.name,
-              }));
+  setFormData((prev) => {
+    const updated = {
+      ...prev,
+      pickupLocation: location.name,
+    };
 
-              setPickupSuggestions([]);
-            }}
+    validateLocations(
+      updated.pickupLocation,
+      updated.dropLocation
+    );
+
+    return updated;
+  });
+
+  setPickupSuggestions([]);
+}}
             className="w-full px-4 py-3 text-left hover:bg-muted"
           >
             <div className="font-medium">
@@ -624,10 +760,18 @@ if (element) {
   </div>
 
   {errors.pickupLocation && (
-    <p className="mt-1 text-sm text-red-500">
-      {errors.pickupLocation}
-    </p>
-  )}
+  <p className="mt-1 text-sm text-red-500">
+    {errors.pickupLocation}{" "}
+    {errors.pickupLocation === "Not serving this location." && (
+      <LocalizedLink
+        href={`/suggest-location?location=${encodeURIComponent(formData.pickupLocation)}`}
+        className="hidden underline"
+      >
+        Suggest location
+      </LocalizedLink>
+    )}
+  </p>
+)}
 </div>
 {/* Pickup Location Ens */}
 {/* Drop Location Start */}
@@ -664,33 +808,32 @@ if (element) {
       name="dropLocation"
       value={formData.dropLocation || ""}
       onChange={(e) => {
-        const value = e.target.value;
+  const value = e.target.value;
 
-        // Existing handleChange
-        handleChange(e);
+  searchLocations(value, "drop");
 
-        // Search locations
-        searchLocations(value, "drop");
+  setFormData((prev) => {
+    const updated = {
+      ...prev,
+      dropLocation: value,
+    };
 
-        // Update drop location
-        setFormData({
-          ...formData,
-          dropLocation: value,
-        });
+    validateLocations(
+      updated.pickupLocation,
+      updated.dropLocation
+    );
 
-        // Validation
-        if (!value.trim()) {
-          setErrors({
-            ...errors,
-            dropLocation: "Drop Location is required",
-          });
-        } else {
-          setErrors({
-            ...errors,
-            dropLocation: "",
-          });
-        }
-      }}
+    return updated;
+  });
+
+  setErrors((prev) => ({
+    ...prev,
+    dropLocation: value.trim()
+      ? ""
+      : "Drop Location is required",
+  }));
+}}
+
       placeholder="Enter drop location"
       
       autoComplete="off"
@@ -715,14 +858,23 @@ if (element) {
           <button
             key={location.id}
             type="button"
-            onClick={() => {
-              setFormData((prev) => ({
-                ...prev,
-                dropLocation: location.name,
-              }));
+           onClick={() => {
+  setFormData((prev) => {
+    const updated = {
+      ...prev,
+      dropLocation: location.name,
+    };
 
-              setDropSuggestions([]);
-            }}
+    validateLocations(
+      updated.pickupLocation,
+      updated.dropLocation
+    );
+
+    return updated;
+  });
+
+  setDropSuggestions([]);
+}}
             className="w-full text-left px-4 py-3 hover:bg-muted"
           >
             <div className="font-medium">
@@ -740,10 +892,18 @@ if (element) {
 
   {/* Drop Location Error */}
   {errors.dropLocation && (
-    <p className="mt-1 text-sm text-red-500">
-      {errors.dropLocation}
-    </p>
-  )}
+  <p className="mt-1 text-sm text-red-500">
+    {errors.dropLocation}{" "}
+    {errors.dropLocation === "Not serving this location." && (
+       <LocalizedLink
+        href={`/suggest-location?location=${encodeURIComponent(formData.dropLoaction)}`}
+        className="underline"
+      >
+        Suggest location
+      </LocalizedLink>
+    )}
+  </p>
+)}
 </div>
         {/*Drop Location End*/}
       </div>
@@ -865,7 +1025,7 @@ if (element) {
   if (!value.trim()) {
     setErrors({
       ...errors,
-      pickupTime: "Pickup Location is required",
+      pickupTime: "Pickup Time is required",
     });
   } else {
     setErrors({
@@ -899,94 +1059,7 @@ if (element) {
 </div>
              </div>
 
-      {/* Passengers */}
-      <div className="relative mb-10">
-  <label
-    htmlFor="carType"
-    className="
-      absolute
-      -top-2.5
-      left-3
-      bg-primary
-      px-1
-      text-xs
-      font-medium
-      text-background
-      z-10
-      rounded-md
-    "
-  >
-    Number Of Passengers <span className="text-red-500">*</span>
-  </label>
-
-  {/* Select Wrapper */}
-  <div
-    className={cn(
-      "rounded-md border-border-background bg-primary transition-colors dark:border-black/25",
-      errors.carType
-        ? "!border-red-500 focus-within:!border-red-500 focus-within:!ring-0"
-        : "border-input focus-within:border-ring focus-within:ring-1 focus-within:ring-ring"
-    )}
-  >
-    <select
-      id="passengers"
-      value={formData.passengers}
-      onChange={(e) => {
-  const value = e.target.value;
-
-  setFormData({
-    ...formData,
-    passengers: value,
-  });
-
-  if (!value) {
-    setErrors({
-      ...errors,
-      passengers: "Please choose car type",
-    });
-  } else {
-    setErrors({
-      ...errors,
-      passengers: "",
-    });
-  }
-}}
-      className="
-        h-16
-        w-full
-        rounded-md
-        border-0
-        bg-background
-        px-4
-        text-sm
-        text-foreground
-        outline-none
-        shadow-none
-        focus:border-0
-        focus:outline-none
-        focus:ring-0
-        focus-visible:ring-0
-        focus-visible:ring-offset-0
-      "
-    >
-    <option value="">Select Passengers</option>
-
-  {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
-    <option  className="bg-background text-foreground" key={num} value={num}>
-      {num} Passenger{num > 1 ? 's' : ''}
-    </option>
-  ))}
-      
-      </select>
-  </div>
-
-  {/* Error Message */}
-  {errors.passengers && (
-    <p className="mt-1 text-sm text-red-500">
-      {errors.passengers}
-    </p>
-  )}
-</div>
+     
       {/* Contact Details */}
       <div className="pt-4 border-t border-border">
         <h3 className="font-semibold text-foreground mb-4">Contact Information</h3>
