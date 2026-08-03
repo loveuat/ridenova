@@ -4,6 +4,7 @@ import { Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from "next/link";
 import { ColourfulWords } from "@/components/ui/colorful-words";
+import { useTranslations } from "next-intl";
 interface ServiceCardProps {
   icon: ReactNode
   title: string
@@ -12,6 +13,7 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ icon, title, description, features }: ServiceCardProps) {
+  
   return (
     <div className="group h-full bg-card rounded-xl border border-border p-6 hover:border-accent hover:shadow-lg transition-all duration-300">
       <div className="w-12 h-12 bg-primary/10 from-accent to-cta rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
@@ -61,6 +63,7 @@ interface DestinationCardProps {
 }
 
 export function DestinationCard({ image, from, to, price, distance, duration }: DestinationCardProps) {
+  const t = useTranslations("PopularRoutes");
   return (
     <div className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
       <div className="relative h-40 bg-muted overflow-hidden">
@@ -77,14 +80,14 @@ export function DestinationCard({ image, from, to, price, distance, duration }: 
         {distance && <p className="text-xs text-muted-foreground mb-3">{distance} km • {duration}</p>}
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs text-muted-foreground">Starting from</p>
+            <p className="text-xs text-muted-foreground">{t("startingFrom")}</p>
             <ColourfulWords text={price} />
           </div>
           <Link href="/#booking-form">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                Book Now
+                {t("bookNow")}
               </Button>
               </Link>
         </div>

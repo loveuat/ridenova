@@ -7,18 +7,19 @@ import {
   Headphones, DollarSign, CheckCircle, Navigation, CarFront 
 } from 'lucide-react'
 import { Icon } from "@iconify/react";
-
+import { useTranslations } from "next-intl";
 {/* Why Choose Us */}
 export function WhyChooseUs() {
+  const whut = useTranslations("WhyChooseUs");
   return (
         <section className="py-16 md:py-24 bg-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Why Choose Trip Mitra?
+                {whut('topheading')}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We provide premium car rental services with unmatched quality and customer satisfaction across the centra india
+                {whut('subheading')}
               </p>
             </div>
 
@@ -30,8 +31,8 @@ export function WhyChooseUs() {
                   className="w-10 h-10"
                 />
               }
-              title="Professional Drivers"
-              description="Verified and experienced drivers with excellent track records"
+              title={whut('driver')}
+              description={whut('drivermessage')}
             />
               <FeatureCard
                 icon={
@@ -40,8 +41,8 @@ export function WhyChooseUs() {
                   className="w-10 h-10"
                 />
               }
-                title="Sanitized Cars"
-                description="All vehicles regularly sanitized and maintained to highest standards"
+                title={whut('sanitize')}
+                description={whut('sanitizemessage')}
               />
               <FeatureCard
                 icon={
@@ -50,8 +51,8 @@ export function WhyChooseUs() {
                   className="w-10 h-10 text-primary"
                 />
               }
-                title="24x7 Support"
-                description="Round-the-clock customer support for any assistance you need"
+                title={whut('support')}
+                description={whut('supportmessage')}
               />
               <FeatureCard
                icon={
@@ -60,8 +61,8 @@ export function WhyChooseUs() {
                   className="w-10 h-10 text-primary"
                 />
               }
-                title="GPS Enabled"
-                description="Advanced GPS tracking for safe and efficient journey monitoring"
+                title={whut('gps')}
+                description={whut('gpsmessage')}
               />
               <FeatureCard
                  icon={
@@ -70,8 +71,8 @@ export function WhyChooseUs() {
                   className="w-10 h-10 text-[#0c6fff]"
                 />
               }
-                title="Affordable Pricing"
-                description="Best rates in market with transparent billing and no hidden charges"
+                title={whut('affordable')}
+                description={whut('affordablemessage')}
               />
               <FeatureCard
                  icon={
@@ -80,8 +81,8 @@ export function WhyChooseUs() {
                   className="w-10 h-10 text-[#0c6fff]"
                 />
               }
-                title="Corporate Billing"
-                description="Flexible payment options with monthly contracts and invoicing"
+                title={whut('billing')}
+                description={whut('billingmessage')}
               />
               <FeatureCard
                  icon={
@@ -90,8 +91,8 @@ export function WhyChooseUs() {
                   className="w-10 h-10 text-[#0c6fff]"
                 />
               }
-                title="Instant Booking"
-                description="Quick and easy booking process in just a few seconds"
+                title={whut('instant')}
+                description={whut('instantmessage')}
               />
               <FeatureCard
                  icon={
@@ -100,8 +101,8 @@ export function WhyChooseUs() {
                   className="w-10 h-10 text-[#0c6fff]"
                 />
               }
-                title="Safe Journey"
-                description="Premium safety features and emergency support services"
+                title={whut('safe')}
+                description={whut('safemessage')}
               />
             </div>
           </div>

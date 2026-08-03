@@ -1,15 +1,18 @@
 "use client";
-
 import { useEffect, useState } from "react";
-
+import { Star, StarHalf } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 interface Testimonial {
   id: number;
   name: string;
   designation: string;
   content: string;
+  rating: number;
 }
 
 export function TestimonialEmblaSlider() {
+  const locale = useLocale();
+const t = useTranslations("Testimonials");
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,11 +20,11 @@ export function TestimonialEmblaSlider() {
     const fetchTestimonials = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/testimonials`
+          `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/testimonials?lang=${locale}`
         );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch testimonials");
+          throw new Error(t("fetchError"));
         }
 
         const data = await response.json();
@@ -38,7 +41,7 @@ export function TestimonialEmblaSlider() {
     };
 
     fetchTestimonials();
-  }, []);
+  }, [locale, t]);
 
   const row1Data = testimonials.filter(
     (_, index) => index % 2 === 0
@@ -60,15 +63,15 @@ export function TestimonialEmblaSlider() {
       <section className="w-full bg-muted/30 py-16">
         <div className="text-center">
           <span className="text-primary text-sm uppercase tracking-widest font-medium">
-            Testimonials
+            {t("badge")}
           </span>
 
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4">
-            What Our Clients Say
+           {t("heading")}
           </h2>
 
           <p className="mt-6 text-muted-foreground">
-            Loading testimonials...
+            {t("loading")}
           </p>
         </div>
       </section>
@@ -131,11 +134,11 @@ export function TestimonialEmblaSlider() {
         <div className="text-center mb-16">
 
           <span className="text-primary text-sm uppercase tracking-widest font-medium">
-            Testimonials
+            {t("badge")}
           </span>
 
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-            What Our Clients Say
+            {t("heading")}
           </h2>
 
         </div>
@@ -243,7 +246,38 @@ function TestimonialCard({
     >
 
       <div className="p-[10px]">
+      <div className="flex items-center gap-1 mb-4">
+  {[1, 2, 3, 4, 5].map((star) => {
+    if (item.rating >= star) {
+      return (
+        <Star
+          key={star}
+          className="w-4 h-4 fill-yellow-400 text-yellow-400"
+        />
+      );
+    }
 
+    if (item.rating >= star - 0.5) {
+      return (
+        <StarHalf
+          key={star}
+          className="w-4 h-4 fill-yellow-400 text-yellow-400"
+        />
+      );
+    }
+
+    return (
+      <Star
+        key={star}
+        className="w-4 h-4 text-muted-foreground/30"
+      />
+    );
+  })}
+
+  <span className="ml-2 text-xs text-muted-foreground">
+    {item.rating.toFixed(1)}
+  </span>
+</div>
         {/* Content */}
 
         <p className="text-md leading-relaxed font-normal mb-8 text-foreground">
