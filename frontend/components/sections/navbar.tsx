@@ -28,25 +28,25 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex items-center justify-center transition-colors">
-                <img
-                  src="/tripmitralogo.webp"
-                  alt="Trip Mitra Go"
-                  loading="eager"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+            <LocalizedLink href="/" className="flex items-center gap-2">
 
-              {/*<div className="flex flex-col leading-tight">
-                <span className="font-semibold text-lg text-foreground">
-                  Atulya IT Solutions
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  Analyze. Architect. Accelerate.
-                </span>
-              </div>*/}
-            </Link>
+              {/* Light Theme Logo */}
+              <img
+                src="/tmglogo-light.webp"
+                alt="Trip Mitra Go"
+                loading="eager"
+                className="block dark:hidden h-12 w-auto object-contain"
+              />
+
+              {/* Dark Theme Logo */}
+              <img
+                src="/tmglogo-dark.webp"
+                alt="Trip Mitra Go"
+                loading="eager"
+                className="hidden dark:block h-12 w-auto object-contain"
+              />
+
+            </LocalizedLink>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
@@ -62,10 +62,6 @@ export function Navbar() {
             </div>
 
             {/* Desktop Actions */}
-
-            
-              
-
             <div className="hidden md:flex items-center gap-2">
                 {/* <Link href="/#booking-form">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
@@ -79,8 +75,6 @@ export function Navbar() {
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>*/}
-
-             
               <LocalizedLink href="/#booking-form">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
