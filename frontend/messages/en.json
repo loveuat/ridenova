@@ -189,8 +189,29 @@
     "bookButton": "Book Your Car Now",
     "callButton": "Call Us Now"
   },
+"mission": {
+    "missionTitle": "Our Mission",
+    "missionContent": "To provide reliable, affordable, and premium car rental services that exceed customer expectations. We commit to safety, professionalism, and exceptional customer service in every journey.",
+    "visionTitle": "Our Vision",
+    "visionContent": "To become the most trusted and preferred car rental service provider in the region, known for quality, innovation, and customer satisfaction."
+  },
+  "contact": {
+    "titleBefore": "Get In",
+    "highlight": "Touch",
+    "titleAfter": "with us",
+    "description": "Have a question or planning a trip? We're here to help.",
 
-  "LandingForm": {
+    "locationTitle": "Our Location",
+    "location": "Balaghat, Madhya Pradesh (481441)",
+    "country": "India",
+
+    "emailTitle": "Email Us",
+    "phoneTitle": "Call Us",
+
+    "hoursTitle": "Working Hours",
+    "hours": "We are available 24/7 for our customers.",
+
+    "bottomText": "Planning a trip? Share your requirements with us and our team will get back to you shortly.",
     "title": "Reach Out",
     "highlight": "Today",
 
@@ -221,9 +242,9 @@
     "returning": "Returning Customer",
     "referral": "Referral",
 
-    "consent": "I agree to be contacted by Atulya IT Solutions regarding my inquiry. I understand that my information will only be used for communication purposes and will never be shared with third parties.",
+    "consent": "I agree to be contacted by Trip Mitra Go regarding my inquiry. I understand that my information will only be used for communication purposes and will never be shared with third parties.",
 
-    "newsletter": "I want to receive news and service updates from Atulya IT Solutions.",
+    "newsletter": "I want to receive news and service updates from Trip Mitra Go.",
 
     "submit": "Submit",
     "loading": "Please wait...",
