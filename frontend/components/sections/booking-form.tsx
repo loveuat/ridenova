@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { CONFIG } from "@/lib/config";
 import LocalizedLink  from "@/components/sections/localizedlink";
+import { useTranslations } from "next-intl";
 const siteKey =
   process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 type Status = "idle" | "loading" | "success" | "error";
@@ -73,6 +74,7 @@ export const bookingSchema = z
 type BookingForm = z.infer<typeof bookingSchema>;
 
 export function BookingForm() {
+const bookingt = useTranslations("BookingForm");
 const [pickupLoading, setPickupLoading] = useState(false);
 const [dropLoading, setDropLoading] = useState(false);
 const [pickupSuggestions, setPickupSuggestions] = useState<any[]>([])
@@ -338,7 +340,7 @@ const contacts = await fetch(
       rounded-md
     "
   >
-    Trip Type <span className="text-red-500">*</span>
+   {bookingt("triptype")} <span className="text-red-500">*</span>
   </label>
 
   {/* Select Wrapper */}
@@ -545,7 +547,7 @@ const contacts = await fetch(
       rounded-md
     "
   >
-    Number Of Passengers <span className="text-red-500">*</span>
+    {bookingt("passengers")} <span className="text-red-500">*</span>
   </label>
 
   {/* Select Wrapper */}
@@ -638,7 +640,7 @@ const contacts = await fetch(
       text-background
     "
   >
-    Pickup Location <span className="text-red-500">*</span>
+    {bookingt("pickuplocation")} <span className="text-red-500">*</span>
   </label>
 
   <div
@@ -777,7 +779,7 @@ onChange={(e) => {
       rounded-md
     "
   >
-    Drop Location <span className="text-red-500">*</span>
+    {bookingt("droplocation")} <span className="text-red-500">*</span>
   </label>
 
   <div
@@ -912,7 +914,7 @@ onChange={(e) => {
       rounded-md
     "
   >
-   Pickup Date <span className="text-red-500">*</span>
+   {bookingt("pickupdate")} <span className="text-red-500">*</span>
   </label>
 
   <div
@@ -985,7 +987,7 @@ onChange={(e) => {
       rounded-md
     "
   >
-   Pickup Time <span className="text-red-500">*</span>
+   {bookingt("pickuptime")} <span className="text-red-500">*</span>
   </label>
 
   <div
@@ -1048,7 +1050,7 @@ onChange={(e) => {
      
       {/* Contact Details */}
       <div className="pt-4 border-t border-border">
-        <h3 className="font-semibold text-foreground mb-4">Contact Information</h3>
+        <h3 className="font-semibold text-background text-center mb-6">Contact Information</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="relative">
   <label
@@ -1066,7 +1068,7 @@ onChange={(e) => {
       rounded-md
     "
   >
-    Full Name <span className="text-red-500">*</span>
+    {bookingt("fullname")} <span className="text-red-500">*</span>
   </label>
 
   <div
@@ -1139,7 +1141,7 @@ onChange={(e) => {
       rounded-md
     "
   >
-    Phone Number <span className="text-red-500">*</span>
+    {bookingt("phonenumber")} <span className="text-red-500">*</span>
   </label>
 
   <div
@@ -1252,7 +1254,7 @@ onChange={(e) => {
 
   {/* WhatsApp Hint */}
   <p className="mt-2 text-xs text-background">
-    💬 Preferably enter your WhatsApp number so we can contact you easily.
+    💬 {bookingt("whatsappnumber")}
   </p>
 
   {/* Validation Error */}
@@ -1278,7 +1280,7 @@ onChange={(e) => {
       rounded-md
     "
   >
-    Email Address <span className="text-red-500">*</span>
+    {bookingt("email")} <span className="text-red-500">*</span>
   </label>
     <div
     className={cn(
@@ -1360,7 +1362,7 @@ onChange={(e) => {
       rounded-md
     "
   >
-    Special Instructions
+    {bookingt("instructions")}
   </label>
 
   {/* Textarea Wrapper */}
@@ -1483,10 +1485,10 @@ onChange={(e) => {
         />
       </svg>
 
-      Please wait...
+      {bookingt("pleasewait")}
     </>
   ) : (
-    "Submit"
+    bookingt('booknow')
   )}
   <Car className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
 </Button>

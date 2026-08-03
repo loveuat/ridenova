@@ -12,19 +12,19 @@ import LocalizedLink from '@/components/sections/localizedlink';
 import {ScrollToBooking}  from '@/components/sections/scroll-indicator';
 import { useTranslations } from "next-intl";
 export function Hero() {
-  const t = useTranslations("Hero");
+  const herot = useTranslations("Hero");
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-25 pb-20">
       {/* Background Image Slider */}
       <div className="absolute inset-0 -z-10">
         <div className="relative w-full h-full">
-          <Image
+          {/*<Image
             src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=600&fit=crop"
             alt="Premium Car Rental"
             fill
             className="object-cover"
             priority
-          />
+          />*/}
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
         </div>
@@ -37,16 +37,16 @@ export function Hero() {
           <div className="z-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-sm font-medium text-primary">Trusted by thousands of travelers</span>
+                <span className="text-sm font-medium text-primary">{herot("topheading")}</span>
               </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-            <ColourfulWords text={t("brand")} /> {t("heading")}{" "}
+            <ColourfulWords text={herot("brand")} /> {herot("heading")}{" "}
             
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-lg">
-              Book your car in seconds. Professional drivers, sanitized cars and 24/7 support for a safe and comfortable journey.
+              {herot("subtitle")}
             </p>
 
             {/* CTA Buttons */}
@@ -61,7 +61,7 @@ export function Hero() {
                   <Button
                     className="group relative h-14 px-10 min-w-[220px] text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-105"
                   >
-                    Book Now
+                    {herot("cta")}
                     <Car className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </div>
@@ -79,15 +79,15 @@ export function Hero() {
             <div className="grid grid-cols-3 gap-6">
               <div>
                 <p className="text-2xl font-bold text-primary">100+</p>
-                <p className="text-sm text-muted-foreground">Happy Customers</p>
+                <p className="text-sm text-muted-foreground">{herot("trust1")}</p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-primary">100+</p>
-                <p className="text-sm text-muted-foreground">Trips Completed</p>
+                <p className="text-sm text-muted-foreground">{herot("trust2")}</p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-primary">2+</p>
-                <p className="text-sm text-muted-foreground">Years Service</p>
+                <p className="text-sm text-muted-foreground">{herot("trust3")}</p>
               </div>
             </div>
           </div>
@@ -103,8 +103,8 @@ export function Hero() {
                 />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">Safe Services</h3>
-                  <p className="text-sm text-muted-foreground">Travel with TripMitra's safe, reliable & professional services.</p>
+                  <h3 className="font-bold text-foreground mb-1">{herot("heroservices.safety")}</h3>
+                  <p className="text-sm text-muted-foreground">{herot("heroservices.safetymessage")}</p>
                 </div>
               </div>
             </div>
@@ -118,8 +118,8 @@ export function Hero() {
                 />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">Professional Drivers</h3>
-                  <p className="text-sm text-muted-foreground">Experienced, courteous, and background verified for your safety</p>
+                  <h3 className="font-bold text-foreground mb-1">{herot("heroservices.professional")}</h3>
+                  <p className="text-sm text-muted-foreground">{herot("heroservices.professionalmessage")}</p>
                 </div>
               </div>
             </div>
@@ -133,8 +133,8 @@ export function Hero() {
                 />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">Easy Booking</h3>
-                  <p className="text-sm text-muted-foreground">Quick and hassle-free bookings</p>
+                  <h3 className="font-bold text-foreground mb-1">{herot("heroservices.easybooking")}</h3>
+                  <p className="text-sm text-muted-foreground">{herot("heroservices.easybookingmessage")}</p>
                 </div>
               </div>
             </div>
@@ -148,8 +148,8 @@ export function Hero() {
                 />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">24x7 Support</h3>
-                  <p className="text-sm text-muted-foreground">Round the clock customer support for peace of mind</p>
+                  <h3 className="font-bold text-foreground mb-1">{herot("heroservices.support")}</h3>
+                  <p className="text-sm text-muted-foreground">{herot("heroservices.supportmessage")}</p>
                 </div>
               </div>
             </div>
@@ -165,15 +165,16 @@ export function Hero() {
 
 {/* Booking Form Section */}
 export function BookingSection() {
+  const herot = useTranslations("Hero");
   return (
     <section id="booking-form" className="py-12 md:py-20 bg-gradient-to-b from-background via-accent/5 to-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Book Your Ride in Seconds
+            {herot("formheading")}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Fill in the details below and we&apos;ll confirm your booking instantly
+            {herot("formsubheading")}
           </p>
         </div>
 

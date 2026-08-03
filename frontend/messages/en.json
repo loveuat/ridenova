@@ -1,29 +1,47 @@
 {
   "Hero": {
+    "topheading": "Trusted by thousands of travelers",
     "title": "Trip Mitra Go",
-    "subtitle": "Modern websites built with Next.js and Headless WordPress.",
+    "subtitle": "Book your car in seconds. Professional drivers, sanitized cars and 24/7 support for a safe and comfortable journey.",
     "heading": "Safe & Reliable Car Rentals for Every Journey",
     "brand": "Trip Mitra Go",
     "subheading": "Modern Websites Engineered for Speed, Security & Scalability. Save up to 20% and create secure, user-friendly Web & Mobile Experiences.",
-    "cta": "Get In Touch",
-    "trust1": "100% Full Time Experts",
-    "trust2": "24/7 Support",
-    "trust3": "2,000+ Websites Built",
-    "roles": {
-      "webSolutions": "Web Solutions",
-      "digitalPlatforms": "Digital Platforms",
-      "scalableProducts": "Scalable Products",
-      "customSystems": "Custom Systems",
-      "enterpriseWebsites": "Enterprise Websites",
-      "modernApplications": "Modern Applications"
-    }
+    "cta": "Book Now",
+    "trust1": "Happy Customers",
+    "trust2": "Trips Completed",
+    "trust3": "Years Service",
+    "heroservices": {
+      "safety": "Safe Services",
+      "safetymessage":"Travel with Trip Mitra Go's safe, reliable & professional services.",
+      "professional": "Professional Drivers",
+      "professionalmessage":"Experienced, courteous, and background verified for your safety",
+      "easybooking": "Easy Booking",
+      "easybookingmessage": "Easy Booking",
+      "support": "24x7 Support",
+      "supportmessage": "Round the clock customer support for peace of mind"
+    },
+    "formheading":"Book Your Car in Seconds",
+    "formsubheading":"Fill in the details below and we'll confirm your booking instantly"
   },
 
+    "BookingForm": {
+    "triptype": "Trip Type",
+    "passengers": "Number of Passengers",
+    "pickuplocation": "Pickup Location",
+    "droplocation": "Drop Location",
+    "pickupdate": "Pickup Date",
+    "pickuptime": "Pickup Time",
+    "whatsappnumber": "Peferably enter your WhatsApp number so we can contact you easily.",
+    "fullname": "Full Name",
+    "phonenumber": "Phone Number",
+    "email": "Email Address",
+    "instructions": "Special Instructions",
+    "booknow": "Book Your Car Now"
+  },
   "Navbar": {
+    "home": "Home",
     "aboutUs": "About Us",
-    "ourProducts": "Our Products",
-    "ourServices": "Our Services",
-    "contact": "Contact",
+    "booknow": "Book Now",
     "letsChat": "Let's Chat",
     "contactUs": "Contact Us",
     "whatsappTitle": "Atulya IT Solutions",
@@ -32,98 +50,144 @@
     "whatsappButton": "Start WhatsApp Chat"
   },
 
-  "Services": {
-    "heading": "Our",
-    "headingHighlight": "Services",
-
-    "wordpress": {
-      "title": "WordPress Developer",
-      "description": "Build custom, high-performance WordPress websites tailored to your business needs.",
-      "feature1": "Custom Theme Development",
-      "feature2": "Plugin Development & Integration",
-      "feature3": "WooCommerce Development"
-    },
-
-    "shopify": {
-      "title": "Shopify Developer",
-      "description": "Create powerful eCommerce experiences with custom Shopify development.",
-      "feature1": "Custom Shopify Development",
-      "feature2": "Payment & Shipping Integration",
-      "feature3": "Conversion Rate Optimization"
-    },
-
-    "woocommerce": {
-      "title": "WooCommerce Developer",
-      "description": "Maintain and optimize your WooCommerce store.",
-      "feature1": "Store Updates",
-      "feature2": "Payment Gateway Support",
-      "feature3": "Performance Optimization"
-    },
-
-    "seo": {
-      "title": "SEO Services",
-      "description": "Improve your search engine rankings and grow your business with data-driven SEO strategies.",
-      "feature1": "Technical SEO Audits",
-      "feature2": "On-Page Content Optimization",
-      "feature3": "SEO Analytics & Reporting"
-    },
-
-    "react": {
-      "title": "React Developer",
-      "description": "Build modern, fast, and interactive web applications with React.",
-      "feature1": "Custom React Application Development",
-      "feature2": "Interactive User Interfaces",
-      "feature3": "Third-Party API Integrations"
-    },
-
-    "nodejs": {
-      "title": "Node.js Developer",
-      "description": "Develop secure, scalable, and high-performance backend applications with Node.js.",
-      "feature1": "REST API & Microservices Development",
-      "feature2": "Third-Party Integrations",
-      "feature3": "Performance Optimization"
-    },
-
-    "maintenance": {
-      "title": "Website Maintenance Services",
-      "description": "Keep your website secure, updated, and performing at its best with proactive maintenance.",
-      "feature1": "Regular Updates & Backups",
-      "feature2": "Security Monitoring",
-      "feature3": "Performance Optimization"
-    },
-
-    "helpdesk": {
-      "title": "Helpdesk Services",
-      "description": "Get reliable technical support and quick issue resolution whenever you need it.",
-      "feature1": "24/7 Technical Support",
-      "feature2": "Bug Fixes & Troubleshooting",
-      "feature3": "Dedicated Assistance"
-    }
+  "WhyChooseUs": {
+    "topheading": "Why Choose Trip Mitra Go?",
+    "subheading": "We provide premium car rental services with unmatched quality and customer satisfaction across the centra india",
+    "driver":"Professional Drivers",
+    "drivermessage":"Verified and experienced drivers with excellent track records",
+    "sanitize":"Sanitized Cars",
+    "sanitizemessage":"All vehicles regularly sanitized and maintained to highest standards",
+    "support":"24x7 Support",
+    "supportmessage":"Round-the-clock customer support for any assistance you need",
+    "gps":"GPS Enabled",
+    "gpsmessage":"Advanced GPS tracking for safe and efficient journey monitoring",
+    "affordable":"Affordable Pricing",
+    "affordablemessage":"Best rates in market with transparent billing and no hidden charges",
+    "billing":"Corporate Billing",
+    "billingmessage":"Flexible payment options with monthly contracts and invoicing",
+    "instant":"Instant Booking",
+    "instantmessage":"Quick and easy booking process in just a few seconds",
+    "safe":"Safe Journey",
+    "safemessage":"Premium safety features and emergency support services"
   },
 
-  "CTA": {
-    "title": "Ready to Build Your",
-    "highlight": "Dream App?",
-    "description": "Whether you need a dedicated WordPress developer, full-stack development, or ongoing website maintenance, we help you find the right talent to bring your ideas to life.",
-    "contactButton": "Contact Us",
-    "callButton": "Schedule a Call"
-  },
+  "OurServices": {
+    "topheading": "Our Services",
+    "subheading": "Professional taxi solutions for every travel need.",
 
-  "LandingHero": {
-    "subtitle1": "Need a Website That Actually Generates Leads?",
-    "heading1": "Atulya IT Solutions Helps Businesses Build Fast, Modern & Scalable",
-    "cta1": "Get Your Free Quote Today",
-    "trust11": "Save up to 30%",
-    "trust22": "Free Project Consultation",
-    "trust33": "100% Custom Solutions",
-    "roles": {
-      "webSolutions1": "Web Solutions",
-      "digitalPlatforms1": "Digital Platforms",
-      "scalableProducts1": "Scalable Products",
-      "customSystems1": "Custom Systems",
-      "enterpriseWebsites1": "Enterprise Websites",
-      "modernApplications1": "Modern Applications"
+    "localTaxi": {
+      "title": "Local Taxi",
+      "description": "Quick and reliable service for local city travel.",
+      "features": [
+        "Competitive rates",
+        "Professional drivers",
+        "Instant booking"
+      ]
+    },
+
+    "outstation": {
+      "title": "Outstation Taxi",
+      "description": "Comfortable rides for intercity and long-distance travel.",
+      "features": [
+        "One-way & Round Trip",
+        "Experienced drivers",
+        "24×7 Availability"
+      ]
+    },
+
+    "hourlyRental": {
+      "title": "Hourly Rental",
+      "description": "Book a cab by the hour for flexible travel.",
+      "features": [
+        "Flexible duration",
+        "Affordable pricing",
+        "Unlimited stops"
+      ]
+    },
+
+    "airportTransfer": {
+      "title": "Airport Transfer",
+      "description": "Reliable airport pickup and drop services.",
+      "features": [
+        "Flight tracking",
+        "On-time pickup",
+        "Luggage assistance"
+      ]
+    },
+
+    "corporateTravel": {
+      "title": "Corporate Travel",
+      "description": "Professional transport solutions for businesses.",
+      "features": [
+        "Monthly billing",
+        "Priority support",
+        "Dedicated vehicles"
+      ]
+    },
+
+    "weddingCar": {
+      "title": "Wedding Car",
+      "description": "Luxury cars for weddings and special occasions.",
+      "features": [
+        "Premium vehicles",
+        "Professional chauffeurs",
+        "Custom packages"
+      ]
     }
+  },
+  "PopularRoutes": {
+    "heading": "Popular Routes",
+    "subheading": "Explore our most requested destinations",
+
+    "fetchError": "Failed to fetch popular routes.",
+    "loadError": "Unable to load popular routes.",
+    "empty": "No popular routes available at the moment.",
+    "startingFrom": "Starting from",
+    "bookNow": "Book Now"
+  },
+   "Testimonials": {
+    "badge": "Testimonials",
+    "heading": "What Our Clients Say",
+    "loading": "Loading testimonials...",
+    "fetchError": "Failed to fetch testimonials."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to frequently asked questions about booking a cab, our services, fares, cancellations, and everything you need to know before your journey with Trip Mitra Go.",
+    "items": [
+      {
+        "question": "What is Trip Mitra Go?",
+        "answer": "Trip Mitra Go is a trusted car rental and taxi booking platform offering local, outstation, airport transfer, one-way, and round-trip cab services with professional drivers and transparent pricing."
+      },
+      {
+        "question": "Which cities does Trip Mitra Go serve?",
+        "answer": "Trip Mitra Go primarily serves Central India, including Raipur, Bilaspur, Durg, Bhilai, Jagdalpur, Jabalpur, Balaghat, Gondia, Nagpur, and nearby cities."
+      },
+      {
+        "question": "What types of trips can I book?",
+        "answer": "You can book local city rides, outstation trips, one-way cabs, round trips, airport transfers, railway station pickups, wedding car rentals, and corporate travel."
+      },
+      {
+        "question": "How can I book a car?",
+        "answer": "You can book a car through our website booking form or by contacting our customer support team."
+      },
+      {
+        "question": "Are your prices transparent?",
+        "answer": "Yes. We provide transparent pricing with no hidden charges. Any tolls, parking fees, or applicable taxes are communicated clearly before your trip."
+      },
+      {
+        "question": "Can I modify or cancel my booking?",
+        "answer": "Yes. Booking modifications and cancellations are available according to our cancellation policy. Please contact our support team as early as possible."
+      }
+    ]
+  },
+   "cta": {
+    "titleBefore": "Need A",
+    "highlight": "Car?",
+    "titleAfter": "Today",
+    "description": "Book your ride in under one minute with Trip Mitra Go. Premium service, competitive rates, and guaranteed safety.",
+    "bookButton": "Book Your Car Now",
+    "callButton": "Call Us Now"
   },
 
   "LandingForm": {

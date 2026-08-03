@@ -7,17 +7,19 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import LanguageSwitcher from '@/components/sections/language-switcher';
 import { Icon } from "@iconify/react";
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  // { name: "Services", href: "/services" },
-  // { name: "Destinations", href: "/destinations" },
-  { name: "Contact", href: "/contact" },
-];
-
+import { useTranslations } from "next-intl";
+import LocalizedLink from '@/components/sections/localizedlink';
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showWhatsapp, setShowWhatsapp] = useState(false);
+  const navt = useTranslations("Navbar");
+  const navLinks = [
+  { name: navt("home"), href: "/" },
+  { name: navt("aboutUs"), href: "/about" },
+  // { name: "Services", href: "/services" },
+  // { name: "Destinations", href: "/destinations" },
+  { name: navt("contactUs"), href: "/contact" },
+];
 
   return (
     <>
@@ -49,13 +51,13 @@ export function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <Link
+                <LocalizedLink
                   key={link.name}
                   href={link.href}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase"
                 >
                   {link.name}
-                </Link>
+                </LocalizedLink>
               ))}
             </div>
 
@@ -79,13 +81,13 @@ export function Navbar() {
               </Link>*/}
 
              
-              <Link href="/#booking-form">
+              <LocalizedLink href="/#booking-form">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                Book Now
+               {navt("booknow")}
               </Button>
-              </Link>
+              </LocalizedLink>
                <ThemeToggle />
                 <LanguageSwitcher />
             </div>
@@ -138,7 +140,7 @@ export function Navbar() {
   onClick={() => setShowWhatsapp(true)}
   className="fixed bottom-6 right-6 z-[100] flex h-12 w-12 items-center justify-center rounded-full bg-green-500 p-2 text-white shadow-xl transition-all duration-300 hover:scale-110"
 >
-  <div className="flex h-full w-full items-center justify-center rounded-full bg-green-600">
+  <div className="flex h-full w-full items-center justify-center rounded-full">
     <Icon
       icon="selfhst:whatsapp"
       className="h-6 w-6"
