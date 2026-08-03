@@ -7,7 +7,8 @@ import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { CONFIG } from "@/lib/config";
-import { Car, ArrowRight, Clock3, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { Car, ArrowRight, Clock3, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { useTranslations } from "next-intl";
 const siteKey =
   process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 type Status = "idle" | "loading" | "success" | "error";
@@ -56,6 +57,7 @@ export const contactSchema = z.object({
 type ContactForm = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
+  const t = useTranslations("contact");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -210,10 +212,14 @@ if (element) {
 
               <div className="mb-8">
                 <h2 className="pb-3 text-center text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
-        Get In <span className="text-gradient-orange"> Touch  </span> with us </h2>
+          {t("titleBefore")}{" "}
+          <span className="text-gradient-orange">
+            {t("highlight")}
+          </span>{" "}
+          {t("titleAfter")}</h2>
 
                 <p className="mt-2 text-muted-foreground">
-                  Have a question or planning a trip? We're here to help.
+                 {t("description")}
                 </p>
               </div>
 
@@ -228,13 +234,13 @@ if (element) {
 
                   <div>
                     <h4 className="font-semibold">
-                      Our Location
+                        {t("locationTitle")}
                     </h4>
 
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                      Balaghat, Madhya Pradesh (481441)
+                      {t("location")}
                       <br />
-                      India
+                       {t("country")}
                     </p>
                   </div>
                 </div>
@@ -247,7 +253,7 @@ if (element) {
 
                   <div>
                     <h4 className="font-semibold">
-                      Email Us
+                       {t("emailTitle")}
                     </h4>
 
                     <a
@@ -267,7 +273,7 @@ if (element) {
 
                   <div>
                     <h4 className="font-semibold">
-                      Call Us
+                     {t("phoneTitle")}
                     </h4>
 
                     <a
@@ -293,11 +299,11 @@ if (element) {
 
                   <div>
                     <h4 className="font-semibold">
-                      Working Hours
+                       {t("hoursTitle")}
                     </h4>
 
                     <p className="mt-1 text-sm text-muted-foreground">
-                     We are avialable 24*7 for our customers
+                      {t("hours")}
                     </p>
                   </div>
                 </div>
@@ -307,8 +313,7 @@ if (element) {
               {/* Bottom CTA */}
               <div className="mt-10 rounded-xl border border-border bg-background/50 p-5">
                 <p className="text-sm text-muted-foreground">
-                  Planning a trip? Share your requirements with us and our
-                  team will get back to you shortly.
+                 {t("bottomText")}
                 </p>
               </div>
 
@@ -335,7 +340,7 @@ if (element) {
       z-10
     "
   >
-    Full Name <span className="text-red-500">*</span>
+     {t("fullName")} <span className="text-red-500">*</span>
   </label>
 
   <div
@@ -406,7 +411,7 @@ if (element) {
       z-10
     "
   >
-    Email Address <span className="text-red-500">*</span>
+    {t("email")}<span className="text-red-500">*</span>
   </label>
     <div
     className={cn(
@@ -599,7 +604,7 @@ if (element) {
       z-10
     "
   >
-    Phone Number <span className="text-red-500">*</span>
+   {t("email")} <span className="text-red-500">*</span>
   </label>
 
   <div
@@ -963,10 +968,7 @@ focus:ring-primary/20 focus:border-primary ">
       htmlFor="consent"
       className="flex-1 text-sm leading-relaxed text-muted-foreground"
     >
-      I agree to be contacted by Trip Mitra Go regarding my
-      inquiry. I understand that my information will be used solely
-      for communication purposes and will not be shared with third
-      parties.
+     {t('consent')}
     </label>
   </div>
 
@@ -993,7 +995,7 @@ focus:ring-primary/20 focus:border-primary ">
     htmlFor="news_checkbox"
     className="text-sm text-muted-foreground leading-relaxed"
   >
-    I want to receive news and service updates from Trip Mitra Go.
+    {t('newsletter')}
   </label>
 </div>
 
