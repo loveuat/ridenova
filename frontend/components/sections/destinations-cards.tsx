@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { DestinationCard } from '@/components/sections/cards'
 import { ColourfulWords } from "@/components/ui/colorful-words";
+import { useLocale, useTranslations } from "next-intl";
 interface PopularRoute {
   id: number
   image: string | null
@@ -14,6 +15,8 @@ interface PopularRoute {
 }
 
 export function DestinationsCards() {
+  const locale = useLocale();
+  const t = useTranslations("PopularRoutes");
   const [routes, setRoutes] = useState<PopularRoute[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -24,7 +27,7 @@ export function DestinationsCards() {
         setLoading(true)
 
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/popular-routes`,
+          `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/popular-routes?lang=${locale}`,
           {
             method: 'GET',
             cache: 'no-store',
@@ -32,7 +35,7 @@ export function DestinationsCards() {
         )
 
         if (!response.ok) {
-          throw new Error('Failed to fetch popular routes')
+          throw new Error(t("fetchError"));
         }
 
         const data = await response.json()
@@ -40,7 +43,7 @@ export function DestinationsCards() {
         setRoutes(data)
       } catch (error) {
         console.error('Popular routes error:', error)
-        setError('Unable to load popular routes.')
+        setError(t("loadError"));
       } finally {
         setLoading(false)
       }
@@ -56,11 +59,11 @@ export function DestinationsCards() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Popular Routes
+            {t("heading")}
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore our most requested destinations
+            {t("subheading")}
           </p>
         </div>
 
@@ -89,7 +92,7 @@ export function DestinationsCards() {
         {!loading && !error && routes.length === 0 && (
           <div className="text-center py-10">
             <p className="text-muted-foreground">
-              No popular routes available at the moment.
+              {t("empty")}
             </p>
           </div>
         )}
