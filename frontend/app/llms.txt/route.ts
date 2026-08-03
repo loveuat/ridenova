@@ -4,7 +4,7 @@ export async function GET() {
 
 Website: https://tripmitrago.in
 
-Trip Mitra provides reliable taxi and car rental services across Central India.
+Trip Mitra Go provides reliable taxi and car rental services across Central India.
 
 Services
 
