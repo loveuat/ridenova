@@ -49,19 +49,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/tripmitralogo.webp',
+        url: '/favicon.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/tripmitralogo.webp',
+        url: '/favicon.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/tripmitralogo.webp',
+        url: '/favicon.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/tripmitralogo.webp',
+    apple: '/favicon.png',
   },
 }
 
@@ -88,7 +88,7 @@ export default async function RootLayout({
     "@type": "Organization",
     name: "Trip Mitra Go",
     url: "https://tripmitrago.in/",
-    logo: "https://tripmitrago.in/tripmitralogo.webp",
+    logo: "https://tripmitrago.in/tmglogo-light.webp",
   };
 
   return (

@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Trip Mitra Go",
+  name: "Trip Mitra Go ",
   url: "https://tripmitrago.in/",
-  logo: "https://tripmitrago.in/aislogo.webp",
+  logo: "https://tripmitrago.in/tmglogo-light.webp",
   description:
     "Book reliable car rental and taxi services in Balaghat with Trip Mitra. Airport transfers, outstation cabs, one-way taxi, wedding cars, corporate travel, Innova Crysta, Tempo Traveller and 24×7 booking across Central India.",
   sameAs: [
