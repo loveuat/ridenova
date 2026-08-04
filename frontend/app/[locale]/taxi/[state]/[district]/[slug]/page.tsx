@@ -1,6 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-
+import {
+  Navbar,
+  Hero,
+  BookingSection,
+  CTA,
+  Footer
+} from "@/components/sections";
 interface PageProps {
   params: Promise<{
     locale: string;
@@ -173,12 +179,8 @@ export default async function LocationPage({
     logo: "https://tripmitrago.in/tmglogo.webp",
   },
 };
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(breadcrumbSchema),
-  }}
-/>
+
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -223,9 +225,92 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+  const faqs = [
+  {
+    question:
+      locale === "hi"
+        ? `${location.name} में टैक्सी कैसे बुक करें?`
+        : `How can I book a taxi in ${location.name}?`,
+    answer:
+      locale === "hi"
+        ? `आप Trip Mitra Go पर ऑनलाइन टैक्सी बुक कर सकते हैं या हमें कॉल कर सकते हैं।`
+        : `You can book your taxi online through Trip Mitra Go or contact us directly.`,
+  },
+  {
+    question:
+      locale === "hi"
+        ? "क्या आउटस्टेशन टैक्सी उपलब्ध है?"
+        : "Do you provide outstation taxi services?",
+    answer:
+      locale === "hi"
+        ? "हाँ, हम वन-वे और राउंड ट्रिप दोनों सेवाएँ प्रदान करते हैं।"
+        : "Yes, we provide one-way and round-trip taxi services.",
+  },
+  {
+    question:
+      locale === "hi"
+        ? "क्या एयरपोर्ट पिकअप उपलब्ध है?"
+        : "Is airport pickup available?",
+    answer:
+      locale === "hi"
+        ? "हाँ, एयरपोर्ट पिकअप और ड्रॉप दोनों उपलब्ध हैं।"
+        : "Yes, airport pickup and drop services are available.",
+  },
+  {
+    question:
+      locale === "hi"
+        ? "कौन-कौन सी गाड़ियाँ उपलब्ध हैं?"
+        : "What vehicles are available?",
+    answer:
+      locale === "hi"
+        ? "हैचबैक, सेडान, एसयूवी, इनोवा क्रिस्टा और टेम्पो ट्रैवलर उपलब्ध हैं।"
+        : "Hatchback, Sedan, SUV, Innova Crysta and Tempo Traveller are available.",
+  },
+];
+  const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+
+    name: faq.question,
+
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
   return (
-    <main className="py-16">
-      <div className="max-w-7xl mx-auto px-4">
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd),
+      }}
+    />
+
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(breadcrumbSchema),
+      }}
+    />
+
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(faqSchema),
+      }}
+    />
+     <main className="min-h-screen bg-background">
+        <Navbar/>
+        {/*<DriveCarSection />*/}
+        <Hero />
+        <BookingSection />
+        <div className="max-w-7xl mx-auto px-4">
 
         <h1 className="text-4xl font-bold mb-4">
           {location.name}
@@ -242,6 +327,36 @@ const breadcrumbSchema = {
         )}
 
       </div>
-    </main>
+         <section className="mt-20">
+  <h2 className="text-3xl font-bold mb-8">
+    {locale === "hi"
+      ? "अक्सर पूछे जाने वाले प्रश्न"
+      : "Frequently Asked Questions"}
+  </h2>
+
+  <div className="space-y-6">
+
+    {faqs.map((faq, index) => (
+      <div
+        key={index}
+        className="rounded-xl border p-6"
+      >
+        <h3 className="font-semibold text-lg mb-2">
+          {faq.question}
+        </h3>
+
+        <p className="text-muted-foreground">
+          {faq.answer}
+        </p>
+      </div>
+    ))}
+
+  </div>
+</section>
+
+        <CTA />
+        <Footer />
+      </main>
+    </>
   );
 }
