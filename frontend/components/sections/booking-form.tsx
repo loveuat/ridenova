@@ -10,6 +10,8 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { CONFIG } from "@/lib/config";
 import LocalizedLink  from "@/components/sections/localizedlink";
 import { useTranslations } from "next-intl";
+import { LocationAutocomplete } from "@/components/sections/locationautocomplete"
+import type { LocationSearchItem } from "@/hooks/useLocationSearch"
 const siteKey =
   process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 type Status = "idle" | "loading" | "success" | "error";
@@ -75,10 +77,10 @@ type BookingForm = z.infer<typeof bookingSchema>;
 
 export function BookingForm() {
 const bookingt = useTranslations("BookingForm");
-const [pickupLoading, setPickupLoading] = useState(false);
-const [dropLoading, setDropLoading] = useState(false);
-const [pickupSuggestions, setPickupSuggestions] = useState<any[]>([])
-const [dropSuggestions, setDropSuggestions] = useState<any[]>([])
+// const [pickupLoading, setPickupLoading] = useState(false);
+// const [dropLoading, setDropLoading] = useState(false);
+// const [pickupSuggestions, setPickupSuggestions] = useState<any[]>([])
+// const [dropSuggestions, setDropSuggestions] = useState<any[]>([])
 const [tripTypes, setTripTypes] = useState<any[]>([])
 const [tripTypesLoading, setTripTypesLoading] = useState(true)
 const [errors, setErrors] = useState<
@@ -105,54 +107,54 @@ const [errors, setErrors] = useState<
       [name]: value
     }))
   }
-  const searchLocations = async (
-  query: string,
-  type: 'pickup' | 'drop'
-) => {
-  if (query.length < 2) {
-    type === 'pickup'
-      ? setPickupSuggestions([])
-      : setDropSuggestions([])
+//   const searchLocations = async (
+//   query: string,
+//   type: 'pickup' | 'drop'
+// ) => {
+//   if (query.length < 2) {
+//     type === 'pickup'
+//       ? setPickupSuggestions([])
+//       : setDropSuggestions([])
 
-    return
-  }
+//     return
+//   }
   
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/locations/search?q=${encodeURIComponent(query)}`
-    )
+//   try {
+//     const response = await fetch(
+//       `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/locations/search?q=${encodeURIComponent(query)}`
+//     )
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch locations')
-    }
+//     if (!response.ok) {
+//       throw new Error('Failed to fetch locations')
+//     }
 
-    const data = await response.json()
+//     const data = await response.json()
 
-    if (type === "pickup") {
-  setPickupSuggestions(data);
+//     if (type === "pickup") {
+//   setPickupSuggestions(data);
 
-  setErrors((prev) => ({
-    ...prev,
-    pickupLocation:
-      data.length === 0 && query.trim().length >= 2
-        ? "Not serving this location."
-        : "",
-  }));
-} else {
-  setDropSuggestions(data);
+//   setErrors((prev) => ({
+//     ...prev,
+//     pickupLocation:
+//       data.length === 0 && query.trim().length >= 2
+//         ? "Not serving this location."
+//         : "",
+//   }));
+// } else {
+//   setDropSuggestions(data);
 
-  setErrors((prev) => ({
-    ...prev,
-    dropLocation:
-      data.length === 0 && query.trim().length >= 2
-        ? "Not serving this location."
-        : "",
-  }));
-}
-  } catch (error) {
-    console.error('Location search error:', error)
-  }
-}
+//   setErrors((prev) => ({
+//     ...prev,
+//     dropLocation:
+//       data.length === 0 && query.trim().length >= 2
+//         ? "Not serving this location."
+//         : "",
+//   }));
+// }
+//   } catch (error) {
+//     console.error('Location search error:', error)
+//   }
+// }
   useEffect(() => {
   const fetchTripTypes = async () => {
     try {
@@ -623,8 +625,8 @@ const contacts = await fetch(
 
       {/* Location */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {/* Pickup Location Start */}
-     <div className="relative">
+     {/* Pickup Location Start */}
+<div className="relative">
   <label
     htmlFor="pickupLocation"
     className="
@@ -651,119 +653,56 @@ const contacts = await fetch(
         : "border-input focus-within:border-ring focus-within:ring-1 focus-within:ring-ring"
     )}
   >
-    <Input
+    <LocationAutocomplete
       id="pickupLocation"
-      type="text"
       name="pickupLocation"
       value={formData.pickupLocation}
-onChange={(e) => {
-  const value = e.target.value;
-
-  searchLocations(value, "pickup");
-
-  setFormData((prev) => {
-    const updated = {
-      ...prev,
-      pickupLocation: value,
-    };
-
-    validateLocations(
-      updated.pickupLocation,
-      updated.dropLocation
-    );
-
-    return updated;
-  });
-
-  setErrors((prev) => ({
-    ...prev,
-    pickupLocation: value.trim()
-      ? ""
-      : "Pickup Location is required",
-  }));
-}}
-
       placeholder="Enter pickup location"
-      required
-      autoComplete="off"
-      className="
-        h-16
-        w-full
-        border-0
-        px-4
-        pr-12
-        shadow-none
-        focus:border-0
-        focus:outline-none
-        focus:ring-0
-        focus-visible:ring-0
-        focus-visible:ring-offset-0
-      "
+      className="h-16 w-full border-0 px-4 pr-12 shadow-none focus:border-0 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+      onChangeText={(value) => {
+        setFormData((prev) => {
+          const updated = { ...prev, pickupLocation: value }
+          validateLocations(updated.pickupLocation, updated.dropLocation)
+          return updated
+        })
+      }}
+      onSelect={(item) => {
+        setFormData((prev) => {
+          const updated = { ...prev, pickupLocation: item.name }
+          validateLocations(updated.pickupLocation, updated.dropLocation)
+          return updated
+        })
+      }}
+      onResultsChange={(results, query, loading) => {
+        if (loading) return
+        setErrors((prev) => ({
+          ...prev,
+          pickupLocation:
+            results.length === 0 && query.trim().length >= 2
+              ? "Not serving this location."
+              : "",
+        }))
+      }}
     />
-
-    {/* Loader inside input */}
-    {pickupLoading && (
-      <div className="absolute right-4 top-1/2 -translate-y-1/2">
-        <div className="h-5 w-5 animate-spin rounded-full border-2 border-muted border-t-primary" />
-      </div>
-    )}
-
-    {/* Suggestions */}
-    {pickupSuggestions.length > 0 && (
-      <div className="absolute left-0 top-full z-50 mt-1 w-full rounded-lg border border-border bg-background shadow-lg">
-        {pickupSuggestions.map((location) => (
-          <button
-            key={location.id}
-            type="button"
-            onClick={() => {
-  setFormData((prev) => {
-    const updated = {
-      ...prev,
-      pickupLocation: location.name,
-    };
-
-    validateLocations(
-      updated.pickupLocation,
-      updated.dropLocation
-    );
-
-    return updated;
-  });
-
-  setPickupSuggestions([]);
-}}
-            className="w-full px-4 py-3 text-left hover:bg-muted"
-          >
-            <div className="font-medium">
-              {location.name}
-            </div>
-
-            <div className="text-sm text-muted-foreground">
-              {location.district}, {location.state}
-            </div>
-          </button>
-        ))}
-      </div>
-    )}
   </div>
 
   {errors.pickupLocation && (
-  <p className="mt-1 text-sm text-red-500">
-    {errors.pickupLocation}{" "}
-    {errors.pickupLocation === "Not serving this location." && (
-      <LocalizedLink
-        href={`/suggest-location?location=${encodeURIComponent(formData.pickupLocation)}`}
-        className="hidden underline"
-      >
-        Suggest location
-      </LocalizedLink>
-    )}
-  </p>
-)}
+    <p className="mt-1 text-sm text-red-500">
+      {errors.pickupLocation}{" "}
+      {errors.pickupLocation === "Not serving this location." && (
+        <LocalizedLink
+          href={`/suggest-location?location=${encodeURIComponent(formData.pickupLocation)}`}
+          className="hidden underline"
+        >
+          Suggest location
+        </LocalizedLink>
+      )}
+    </p>
+  )}
 </div>
-{/* Pickup Location Ens */}
+{/* Pickup Location End */}
 {/* Drop Location Start */}
-        <div className="relative">
+<div className="relative">
   <label
     htmlFor="dropLocation"
     className="
@@ -784,116 +723,61 @@ onChange={(e) => {
 
   <div
     className={cn(
-      "rounded-md border bg-background transition-colors dark:border-white/25",
+      "relative rounded-md border bg-background transition-colors dark:border-white/25",
       errors.dropLocation
         ? "!border-red-500 focus-within:!border-red-500 focus-within:!ring-0"
         : "border-input focus-within:border-ring focus-within:ring-1 focus-within:ring-ring"
     )}
   >
-    <Input
+    <LocationAutocomplete
       id="dropLocation"
-      type="text"
       name="dropLocation"
       value={formData.dropLocation || ""}
-      onChange={(e) => {
-  const value = e.target.value;
-
-  searchLocations(value, "drop");
-
-  setFormData((prev) => {
-    const updated = {
-      ...prev,
-      dropLocation: value,
-    };
-
-    validateLocations(
-      updated.pickupLocation,
-      updated.dropLocation
-    );
-
-    return updated;
-  });
-
-  setErrors((prev) => ({
-    ...prev,
-    dropLocation: value.trim()
-      ? ""
-      : "Drop Location is required",
-  }));
-}}
-
       placeholder="Enter drop location"
-      
-      autoComplete="off"
-      className="
-        h-16
-        w-full
-        border-0
-        px-4
-        shadow-none
-        focus:border-0
-        focus:outline-none
-        focus:ring-0
-        focus-visible:ring-0
-        focus-visible:ring-offset-0
-      "
+      className="h-16 w-full border-0 px-4 shadow-none focus:border-0 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+      onChangeText={(value) => {
+        setFormData((prev) => {
+          const updated = { ...prev, dropLocation: value }
+          validateLocations(updated.pickupLocation, updated.dropLocation)
+          return updated
+        })
+      }}
+      onSelect={(item: LocationSearchItem) => {
+        setFormData((prev) => {
+          const updated = { ...prev, dropLocation: item.name }
+          validateLocations(updated.pickupLocation, updated.dropLocation)
+          return updated
+        })
+      }}
+      onResultsChange={(results, query, loading) => {
+        if (loading) return
+        setErrors((prev) => ({
+          ...prev,
+          dropLocation:
+            results.length === 0 && query.trim().length >= 2
+              ? "Not serving this location."
+              : "",
+        }))
+      }}
     />
-
-    {/* Drop Location Suggestions */}
-    {dropSuggestions.length > 0 && (
-      <div className="absolute z-50 w-full mt-1 bg-background border border-border rounded-lg shadow-lg">
-        {dropSuggestions.map((location) => (
-          <button
-            key={location.id}
-            type="button"
-           onClick={() => {
-  setFormData((prev) => {
-    const updated = {
-      ...prev,
-      dropLocation: location.name,
-    };
-
-    validateLocations(
-      updated.pickupLocation,
-      updated.dropLocation
-    );
-
-    return updated;
-  });
-
-  setDropSuggestions([]);
-}}
-            className="w-full text-left px-4 py-3 hover:bg-muted"
-          >
-            <div className="font-medium">
-              {location.name}
-            </div>
-
-            <div className="text-sm text-muted-foreground">
-              {location.district}, {location.state}
-            </div>
-          </button>
-        ))}
-      </div>
-    )}
   </div>
 
   {/* Drop Location Error */}
   {errors.dropLocation && (
-  <p className="mt-1 text-sm text-red-500">
-    {errors.dropLocation}{" "}
-    {errors.dropLocation === "Not serving this location." && (
-       <LocalizedLink
-        href={`/suggest-location?location=${encodeURIComponent(formData.dropLoaction)}`}
-        className="underline"
-      >
-        Suggest location
-      </LocalizedLink>
-    )}
-  </p>
-)}
+    <p className="mt-1 text-sm text-red-500">
+      {errors.dropLocation}{" "}
+      {errors.dropLocation === "Not serving this location." && (
+        <LocalizedLink
+          href={`/suggest-location?location=${encodeURIComponent(formData.dropLocation)}`}
+          className="underline"
+        >
+          Suggest location
+        </LocalizedLink>
+      )}
+    </p>
+  )}
 </div>
-        {/*Drop Location End*/}
+{/*Drop Location End*/}
       </div>
       {/*Second Row End*/}
       {/* Date & Time */}
