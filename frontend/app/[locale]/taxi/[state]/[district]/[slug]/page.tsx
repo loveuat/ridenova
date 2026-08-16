@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { LocationBanner } from "@/components/sections/locationbanner"
 import {
   Navbar,
   Hero,
@@ -308,7 +309,12 @@ const breadcrumbSchema = {
      <main className="min-h-screen bg-background">
         <Navbar/>
         {/*<DriveCarSection />*/}
-        <Hero />
+        {/*<Hero />*/}
+        <LocationBanner
+  imageUrl={location.banner_image}
+  title={location.name}
+  subtitle={[location.sub_district, location.district, location.state].filter(Boolean).join(', ')}
+/>
         <BookingSection />
         <div className="max-w-7xl mx-auto px-4">
 
