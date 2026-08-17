@@ -1,0 +1,46 @@
+
+> trip-mitra-go@0.1.0 build C:\laragon\www\ridenova\frontend
+> next build
+
+▲ Next.js 16.2.4 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 88s
+  Skipping validation of types
+  Finished TypeScript config validation in 1246ms ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/7) ...
+  Generating static pages using 15 workers (1/7) 
+  Generating static pages using 15 workers (3/7) 
+  Generating static pages using 15 workers (5/7) 
+✓ Generating static pages using 15 workers (7/7) in 660ms
+  Finalizing page optimization ...
+
+Route (app)                                            Revalidate  Expire
+┌ ○ /_not-found
+├ ƒ /[locale]
+├ ƒ /[locale]/about
+├ ƒ /[locale]/blogs
+├ ƒ /[locale]/careers
+├ ƒ /[locale]/contact
+├ ƒ /[locale]/privacy-policy
+├ ƒ /[locale]/services
+├ ƒ /[locale]/taxi/[state]/[district]
+├ ƒ /[locale]/taxi/[state]/[district]/[slug]
+├ ƒ /[locale]/taxi/[state]/[district]/tehsil/[tehsil]
+├ ƒ /[locale]/terms-of-service
+├ ƒ /api/contact
+├ ƒ /llms.txt
+├ ○ /robots.txt
+└ ● /sitemap/[__metadata_id__]                                 1d      1y
+  ├ /sitemap/0.xml                                             1d      1y
+  └ /sitemap/1.xml                                             1d      1y
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

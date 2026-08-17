@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
   title: {
     default: "Trip Mitra Go ",
-    template: "%s | Trip Mitra Go | Car Rental & Taxi Service in Balaghat | Airport & Outstation Cabs",
+    template: "%s | Car Rental & Taxi Service in Balaghat | Airport & Outstation Cabs",
   },
 
   description:
