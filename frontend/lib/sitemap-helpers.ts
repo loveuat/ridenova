@@ -29,7 +29,16 @@ export async function fetchJSON<T>(path: string): Promise<T> {
 }
 
 export function urlXml(loc: string, priority: number, freq: string, lastmod?: string) {
-  return `<url><loc>${loc}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<changefreq>${freq}</changefreq><priority>${priority}</priority></url>`
+  let validLastmod: string | undefined
+
+  if (lastmod) {
+    const d = new Date(lastmod)
+    if (!isNaN(d.getTime())) {
+      validLastmod = d.toISOString()
+    }
+  }
+
+  return `<url><loc>${loc}</loc>${validLastmod ? `<lastmod>${validLastmod}</lastmod>` : ""}<changefreq>${freq}</changefreq><priority>${priority}</priority></url>`
 }
 
 export function wrapUrlset(urls: string[]) {
