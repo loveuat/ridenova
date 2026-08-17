@@ -1,17 +1,13 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from "next"
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tripmitrago.in"
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: [
-          "/admin/",
-          "/api/",
-        ],
-      },
-    ],
-    sitemap: "https://tripmitrago.in/sitemap.xml",
-  };
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: `${BASE_URL}/sitemap-index.xml`,
+  }
 }
