@@ -20,7 +20,7 @@ interface PageProps {
 async function getDistrict(districtSlug: string, locale: string) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/areas/district/${districtSlug}?lang=${locale}`,
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 604800 } }
   );
 
   if (!response.ok) return null;
@@ -202,7 +202,7 @@ export default async function DistrictPage({ params }: PageProps) {
           subtitle={data.state}
         />
 
-        <BookingSection />
+        {/*<BookingSection />*/}
 
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">{data.name} District</h1>
