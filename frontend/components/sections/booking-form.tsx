@@ -54,10 +54,10 @@ export const bookingSchema = z
         }
       ),
 
-    email: z
-      .string()
-      .trim()
-      .email("Invalid email address"),
+    // email: z
+    //   .string()
+    //   .trim()
+    //   .email("Invalid email address"),
 
     phone: z
       .string()
@@ -232,7 +232,7 @@ if (element) {
     setErrors({
       tripType: fieldErrors.tripType?.[0],
       name: fieldErrors.name?.[0],
-      email: fieldErrors.email?.[0],
+      //email: fieldErrors.email?.[0],
       phone: fieldErrors.phone?.[0],
       //subject: fieldErrors.phone?.[0],
       //message: fieldErrors.message?.[0],
@@ -1164,7 +1164,7 @@ const contacts = await fetch(
       rounded-md
     "
   >
-    {bookingt("email")} <span className="text-red-500">*</span>
+    {bookingt("email")} 
   </label>
     <div
     className={cn(
@@ -1186,13 +1186,7 @@ const contacts = await fetch(
     email: value,
   });
 
-  if (!value.trim()) {
-    setErrors({
-      ...errors,
-      email: "Email is required",
-    });
-  } else if (
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+ if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
   ) {
     setErrors({
       ...errors,

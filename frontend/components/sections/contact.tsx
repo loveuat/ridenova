@@ -18,10 +18,10 @@ export const contactSchema = z.object({
     .trim()
     .min(2, "Name must be at least 2 characters"),
 
-  email: z
-    .string()
-    .trim()
-    .email("Invalid email address"),
+  // email: z
+  //   .string()
+  //   .trim()
+  //   .email("Invalid email address"),
 
    subject: z
   .string()
@@ -106,7 +106,7 @@ if (element) {
 
     setErrors({
       name: fieldErrors.name?.[0],
-      email: fieldErrors.email?.[0],
+      //email: fieldErrors.email?.[0],
       phone: fieldErrors.phone?.[0],
       subject: fieldErrors.phone?.[0],
       message: fieldErrors.message?.[0],
@@ -411,7 +411,7 @@ if (element) {
       z-10
     "
   >
-    {t("email")}<span className="text-red-500">*</span>
+    {t("email")}
   </label>
     <div
     className={cn(
@@ -433,14 +433,7 @@ if (element) {
     email: value,
   });
 
-  if (!value.trim()) {
-    setErrors({
-      ...errors,
-      email: "Email is required",
-    });
-  } else if (
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-  ) {
+ if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
     setErrors({
       ...errors,
       email: "Enter a valid email address",
