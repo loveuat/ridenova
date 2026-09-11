@@ -22,7 +22,7 @@ async function getLocation(slug: string, locale: string) {
     `${process.env.NEXT_PUBLIC_TMG_API_URL}/api/v1/locations/${slug}?lang=${locale}`,
     {
       next: {
-        revalidate: 3600,
+        revalidate: 604800,
       },
     }
   );
@@ -315,7 +315,7 @@ const breadcrumbSchema = {
   title={location.name}
   subtitle={[location.sub_district, location.district, location.state].filter(Boolean).join(', ')}
 />
-        <BookingSection />
+        {/*<BookingSection />*/}
         <div className="max-w-7xl mx-auto px-4">
 
         <h1 className="text-4xl font-bold mb-4">
